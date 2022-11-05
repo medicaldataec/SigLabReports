@@ -32,12 +32,15 @@
           <QueryParameter Name="@EstadoId">
             <Value>=Parameters!EstadoId.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@TestExamenId">
+            <Value>=Parameters!TestExamenId.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandText>SELECT CAST(OrdFecha AS date) as Fecha,DATEDIFF(year,PacFechaNacimiento,GETDATE()) AS edad, TestExamenDescripcion,OficinaId,SexoId,SexoDescripcion,
 SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,OrdEstado,DetUsuIdValidaRechaza,UsuarioValida,EmbarazoId,EmbarazoDescripcion,EtapaHumId,EtapaHumDescripcion,OrdTurno,EmpId,Empresa,MedId,MedApellido,MedNombre,PacId,UsuarioId,PacApellido,PacNombre,PacIdentificacion,HistoriaClinica,PacFechaNacimiento,
 TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetFechaUsuValidaRechaza,DetResulText,DetResultadoAnterior,DetResultadoUltimo,COUNT(*) 
 FROM Reporte.Lab_V_OrdenDetalle
-where EmpId in (@EmpId) and OficinaId in (@OficinaId) and OrdFecha between @FechaDesde and @FechaHasta and OrdEstado in (@EstadoId) and TestAreaId in (@AreaId)
+where EmpId in (@EmpId) and OficinaId in (@OficinaId) and OrdFecha between @FechaDesde and @FechaHasta and OrdEstado in (@EstadoId) and TestAreaId in (@AreaId)  and TestExamenId in (@TestExamenId)
 GROUP BY CAST(OrdFecha AS DATE), OficinaId,TestExamenDescripcion,sexoId,SexoDescripcion,
 SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRechaza,UsuarioValida,EmpId,Empresa,OrdEstado,EmbarazoId,EmbarazoDescripcion,EtapaHumId,EtapaHumDescripcion,ordturno,MedId,MedApellido,MedNombre,PacId,UsuarioId,PacApellido,PacNombre,PacIdentificacion,HistoriaClinica,PacFechaNacimiento,DetFechaUsuValidaRechaza,TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResulText,DetResultadoAnterior,DetResultadoUltimo</CommandText>
       </Query>
@@ -485,11 +488,11 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
           <QueryParameter Name="@EmpId">
             <Value>=Parameters!EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@TestAreaId">
-            <Value>=Parameters!TestAreaId.Value</Value>
+          <QueryParameter Name="@AreaId">
+            <Value>=Parameters!AreaId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Laboratorio.Lab_V_Test where EmpId in (@EmpId) and AreaId in (@TestAreaId)</CommandText>
+        <CommandText>SELECT * FROM Laboratorio.Lab_V_Test where EmpId in (@EmpId) and AreaId in (@AreaId)</CommandText>
       </Query>
       <Fields>
         <Field Name="TestId">
@@ -789,147 +792,29 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Tablix Name="Tablix1">
+          <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.95919cm</Width>
+                  <Width>1.5856cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.68412cm</Width>
+                  <Width>1.41627cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.14979cm</Width>
+                  <Width>1.41627cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.31912cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.17095cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.31912cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.66295cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.47245cm</Width>
+                  <Width>1.28927cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.63175cm</Height>
+                  <Height>0.54708cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox11">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Edad</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox11</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox3">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Sexo Descripcion</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox3</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox5">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Test Area Descripcion</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox28">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -938,8 +823,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>Examen Descripcion</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -949,7 +833,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox28</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -965,7 +849,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox30">
+                        <Textbox Name="Textbox4">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -974,8 +858,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>Resultado</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -985,7 +868,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1001,43 +884,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox32">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Usuario Validacionpo</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox32</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox34">
+                        <Textbox Name="Textbox7">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1046,8 +893,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>Fecha Validacion</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1057,7 +903,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox34</rd:DefaultName>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1073,7 +919,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox35">
+                        <Textbox Name="Textbox39">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1082,8 +928,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>Hora Validacion</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1093,7 +938,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox34</rd:DefaultName>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1110,114 +955,11 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.44125cm</Height>
+                  <Height>0.54708cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="edad">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!edad.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>edad</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="SexoDescripcion">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!SexoDescripcion.Value</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>SexoDescripcion</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TestAreaDescripcion">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!TestAreaDescripcion.Value</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>TestAreaDescripcion</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TestExamenDescripcion">
+                        <Textbox Name="TestExamenDescripcion1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1226,8 +968,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>=Fields!TestExamenDescripcion.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1236,7 +977,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TestExamenDescripcion</rd:DefaultName>
+                          <rd:DefaultName>TestExamenDescripcion1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1252,7 +993,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DetResulText">
+                        <Textbox Name="DetResulText1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1261,8 +1002,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>=Fields!DetResulText.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1271,7 +1011,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DetResulText</rd:DefaultName>
+                          <rd:DefaultName>DetResulText1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1287,42 +1027,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="UsuarioValida">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!UsuarioValida.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>UsuarioValida</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="DetFechaUsuValidaRechaza">
+                        <Textbox Name="DetFechaUsuValidaRechaza2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1331,8 +1036,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <TextRun>
                                   <Value>=Fields!DetFechaUsuValidaRechaza.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <Format>d</Format>
                                   </Style>
                                 </TextRun>
@@ -1342,7 +1046,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DetFechaUsuValidaRechaza</rd:DefaultName>
+                          <rd:DefaultName>DetFechaUsuValidaRechaza2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1358,7 +1062,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DetFechaUsuValidaRechaza1">
+                        <Textbox Name="DetFechaUsuValidaRechaza3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1368,7 +1072,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                   <Value>=Fields!DetFechaUsuValidaRechaza.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <Format>T</Format>
                                   </Style>
                                 </TextRun>
@@ -1378,7 +1082,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DetFechaUsuValidaRechaza1</rd:DefaultName>
+                          <rd:DefaultName>DetFechaUsuValidaRechaza3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1402,19 +1106,15 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.31912cm</Size>
+                    <Size>1.1905cm</Size>
                     <CellContents>
-                      <Textbox Name="Textbox22">
+                      <Textbox Name="Textbox13">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
@@ -1424,7 +1124,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 <Value>Fecha</Value>
                                 <Style>
                                   <FontFamily>Arial</FontFamily>
-                                  <FontSize>6pt</FontSize>
+                                  <FontSize>5pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -1434,7 +1134,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox22</rd:DefaultName>
+                        <rd:DefaultName>Textbox13</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -1451,9 +1151,9 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.43012cm</Size>
+                        <Size>1.2259cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox19">
+                          <Textbox Name="Textbox17">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
@@ -1463,7 +1163,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                     <Value>Ord Turno</Value>
                                     <Style>
                                       <FontFamily>Arial</FontFamily>
-                                      <FontSize>6pt</FontSize>
+                                      <FontSize>5pt</FontSize>
                                       <FontWeight>Bold</FontWeight>
                                     </Style>
                                   </TextRun>
@@ -1473,7 +1173,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox19</rd:DefaultName>
+                            <rd:DefaultName>Textbox17</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -1490,9 +1190,9 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>3.96779cm</Size>
+                            <Size>2.18426cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox15">
+                              <Textbox Name="Textbox23">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
@@ -1502,7 +1202,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                         <Value>Paciente</Value>
                                         <Style>
                                           <FontFamily>Arial</FontFamily>
-                                          <FontSize>6pt</FontSize>
+                                          <FontSize>5pt</FontSize>
                                           <FontWeight>Bold</FontWeight>
                                         </Style>
                                       </TextRun>
@@ -1512,160 +1212,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox15</rd:DefaultName>
-                                <Style>
-                                  <Border>
-                                    <Color>LightGrey</Color>
-                                    <Style>Solid</Style>
-                                  </Border>
-                                  <PaddingLeft>2pt</PaddingLeft>
-                                  <PaddingRight>2pt</PaddingRight>
-                                  <PaddingTop>2pt</PaddingTop>
-                                  <PaddingBottom>2pt</PaddingBottom>
-                                </Style>
-                              </Textbox>
-                            </CellContents>
-                          </TablixHeader>
-                          <TablixMembers>
-                            <TablixMember />
-                          </TablixMembers>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                  </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Fecha">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Fecha.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Fecha.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>2.31912cm</Size>
-                    <CellContents>
-                      <Textbox Name="Fecha1">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Fecha.Value</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontSize>6pt</FontSize>
-                                  <Format>d</Format>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Fecha1</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="OrdTurno">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!OrdTurno.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!OrdTurno.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixHeader>
-                        <Size>1.43012cm</Size>
-                        <CellContents>
-                          <Textbox Name="OrdTurno">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!OrdTurno.Value</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <FontSize>6pt</FontSize>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <TextAlign>Center</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>OrdTurno</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>Solid</Style>
-                              </Border>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <Group Name="PacApellido">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!PacApellido.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!PacApellido.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
-                          <TablixHeader>
-                            <Size>3.96779cm</Size>
-                            <CellContents>
-                              <Textbox Name="PacApellido1">
-                                <CanGrow>true</CanGrow>
-                                <KeepTogether>true</KeepTogether>
-                                <Paragraphs>
-                                  <Paragraph>
-                                    <TextRuns>
-                                      <TextRun>
-                                        <Value>=Fields!PacApellido.Value+" "+Fields!PacNombre.Value</Value>
-                                        <Style>
-                                          <FontFamily>Arial</FontFamily>
-                                          <FontSize>6pt</FontSize>
-                                        </Style>
-                                      </TextRun>
-                                    </TextRuns>
-                                    <Style>
-                                      <TextAlign>Center</TextAlign>
-                                    </Style>
-                                  </Paragraph>
-                                </Paragraphs>
-                                <rd:DefaultName>PacApellido1</rd:DefaultName>
+                                <rd:DefaultName>Textbox23</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -1681,7 +1228,433 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="Detalles" />
+                              <TablixHeader>
+                                <Size>1.10767cm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox25">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>Edad</Value>
+                                            <Style>
+                                              <FontFamily>Arial</FontFamily>
+                                              <FontSize>5pt</FontSize>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox25</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>1.3244cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Textbox27">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Sexo </Value>
+                                                <Style>
+                                                  <FontFamily>Arial</FontFamily>
+                                                  <FontSize>5pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox27</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>1.75493cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Textbox31">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Area Descripcion</Value>
+                                                    <Style>
+                                                      <FontFamily>Arial</FontFamily>
+                                                      <FontSize>5pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox31</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Fecha1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Fecha.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Fecha.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>1.1905cm</Size>
+                    <CellContents>
+                      <Textbox Name="Fecha11">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!Fecha.Value</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontSize>5pt</FontSize>
+                                  <Format>d</Format>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Fecha11</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="OrdTurno1">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!OrdTurno.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!OrdTurno.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>1.2259cm</Size>
+                        <CellContents>
+                          <Textbox Name="OrdTurno1">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!OrdTurno.Value</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <FontSize>5pt</FontSize>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>OrdTurno1</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="PacApellido1">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!PacApellido.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!PacApellido.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>2.18426cm</Size>
+                            <CellContents>
+                              <Textbox Name="PacApellido11">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!PacApellido.Value+" "+Fields!PacNombre.Value</Value>
+                                        <Style>
+                                          <FontFamily>Arial</FontFamily>
+                                          <FontSize>5pt</FontSize>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>PacApellido11</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <Group Name="edad">
+                                <GroupExpressions>
+                                  <GroupExpression>=Fields!edad.Value</GroupExpression>
+                                </GroupExpressions>
+                              </Group>
+                              <SortExpressions>
+                                <SortExpression>
+                                  <Value>=Fields!edad.Value</Value>
+                                </SortExpression>
+                              </SortExpressions>
+                              <TablixHeader>
+                                <Size>1.10767cm</Size>
+                                <CellContents>
+                                  <Textbox Name="edad1">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!edad.Value</Value>
+                                            <Style>
+                                              <FontFamily>Arial</FontFamily>
+                                              <FontSize>5pt</FontSize>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>edad1</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <Group Name="SexoDescripcion">
+                                    <GroupExpressions>
+                                      <GroupExpression>=Fields!SexoDescripcion.Value</GroupExpression>
+                                    </GroupExpressions>
+                                  </Group>
+                                  <SortExpressions>
+                                    <SortExpression>
+                                      <Value>=Fields!SexoDescripcion.Value</Value>
+                                    </SortExpression>
+                                  </SortExpressions>
+                                  <TablixHeader>
+                                    <Size>1.3244cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="SexoDescripcion1">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!SexoDescripcion.Value</Value>
+                                                <Style>
+                                                  <FontFamily>Arial</FontFamily>
+                                                  <FontSize>5pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>SexoDescripcion1</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <Group Name="TestAreaDescripcion">
+                                        <GroupExpressions>
+                                          <GroupExpression>=Fields!TestAreaDescripcion.Value</GroupExpression>
+                                        </GroupExpressions>
+                                      </Group>
+                                      <SortExpressions>
+                                        <SortExpression>
+                                          <Value>=Fields!TestAreaDescripcion.Value</Value>
+                                        </SortExpression>
+                                      </SortExpressions>
+                                      <TablixHeader>
+                                        <Size>1.75493cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="TestAreaDescripcion1">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!TestAreaDescripcion.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Arial</FontFamily>
+                                                      <FontSize>5pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>TestAreaDescripcion1</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember>
+                                          <Group Name="Detalles1" />
+                                        </TablixMember>
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
+                              </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
                         </TablixMember>
@@ -1692,10 +1665,10 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Lab_DS_OrdenesDetalle</DataSetName>
-            <Top>0.17639cm</Top>
-            <Left>0.43827cm</Left>
-            <Height>1.073cm</Height>
-            <Width>22.45474cm</Width>
+            <Top>0.09172cm</Top>
+            <Left>0.42148cm</Left>
+            <Height>1.09417cm</Height>
+            <Width>14.49506cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1704,7 +1677,7 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.94167in</Height>
+        <Height>0.82744in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>
@@ -2011,10 +1984,6 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
       <DataType>DateTime</DataType>
       <Prompt>Fecha Desde</Prompt>
     </ReportParameter>
-    <ReportParameter Name="FechaHasta">
-      <DataType>DateTime</DataType>
-      <Prompt>Fecha Hasta</Prompt>
-    </ReportParameter>
     <ReportParameter Name="EstadoId">
       <DataType>String</DataType>
       <Prompt>Estado Id</Prompt>
@@ -2024,10 +1993,9 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
       <Prompt>Usuario Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="TestAreaId">
-      <DataType>Integer</DataType>
-      <Prompt>Test Area Id</Prompt>
-      <MultiValue>true</MultiValue>
+    <ReportParameter Name="FechaHasta">
+      <DataType>DateTime</DataType>
+      <Prompt>Fecha Hasta</Prompt>
     </ReportParameter>
     <ReportParameter Name="AreaId">
       <DataType>String</DataType>
@@ -2059,8 +2027,8 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
           <ParameterName>FechaDesde</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>FechaHasta</ParameterName>
         </CellDefinition>
         <CellDefinition>
@@ -2074,17 +2042,12 @@ SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRech
           <ParameterName>UsuarioId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>TestAreaId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>AreaId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>TestExamenId</ParameterName>
         </CellDefinition>

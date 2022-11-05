@@ -49,6 +49,7 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <DataSet Include="Lab_DS_OrdenesConteo.rsd" />
     <DataSet Include="Lab_DS_OrdenesDetalleConteo.rsd" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="Lab_R_OrdenesConteo_Medicos.rdl" />
+    <Report Include="Lab_R_OrdenesConteo_Sexo.rdl" />
     <Report Include="Lab_R_OrdenesConteo_Sexo_EtapaHumana.rdl" />
     <Report Include="Lab_R_OrdenesConteo_UsuarioIngreso.rdl" />
     <Report Include="Lab_R_OrdenesDetalleConteo_Test_Embarazo.rdl" />
