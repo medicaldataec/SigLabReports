@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="SigLab">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=34.133.85.129;Initial Catalog=SigLab</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>7e32e70e-e65b-4376-876c-e3202235e791</DataSourceID>
+</RptDataSource>

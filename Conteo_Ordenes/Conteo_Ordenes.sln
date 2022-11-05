@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Conteo_Ordenes", "Conteo_Ordenes.rptproj", "{97D0A932-42EE-4C9B-97BB-587AA458B6F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Debug|Default.ActiveCfg = Debug
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Debug|Default.Build.0 = Debug
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Debug|Default.Deploy.0 = Debug
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.DebugLocal|Default.Build.0 = DebugLocal
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Release|Default.ActiveCfg = Release
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Release|Default.Build.0 = Release
+		{97D0A932-42EE-4C9B-97BB-587AA458B6F4}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C1FB150-038C-4C41-A430-4857F5B87DB4}
+	EndGlobalSection
+EndGlobal

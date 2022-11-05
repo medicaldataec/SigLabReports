@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>SigLab</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@EmpId">
+          <DefaultValue />
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
+        </DataSetParameter>
+        <DataSetParameter Name="@OficinaId">
+          <DefaultValue />
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
+        </DataSetParameter>
+        <DataSetParameter Name="@FechaDesde">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>DateTime</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@FechaHasta">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>DateTime</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select EmpId, OficinaId, Oficina,SalaHospId, SalaHospDescripcion, SexoId, SexoDescripcion,
+EmbarazoId,EmbarazoDescripcion, Min(OrdFecha) as FechaDesde, 
+RazaId, RazaDescripcion, TipoUsuarioId, TipoUsuarioDescripcion, 
+max(OrdFecha) as FechaHasta, COUNT(*) as NumReg
+
+FROM Reporte.Lab_V_Ordenes
+where EmpId in (@EmpId) and OficinaId in (@OficinaId) and OrdFecha between @FechaDesde and @FechaHasta 
+GROUP BY EmpId, OficinaId, Oficina, SalaHospId, SalaHospDescripcion, 
+SexoId, SexoDescripcion,EmbarazoId,EmbarazoDescripcion,RazaId, RazaDescripcion, TipoUsuarioId, 
+TipoUsuarioDescripcion,CAST(OrdFecha AS date)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="EmpId">
+        <DataField>EmpId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="OficinaId">
+        <DataField>OficinaId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Oficina">
+        <DataField>Oficina</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalaHospId">
+        <DataField>SalaHospId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SalaHospDescripcion">
+        <DataField>SalaHospDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SexoId">
+        <DataField>SexoId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SexoDescripcion">
+        <DataField>SexoDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmbarazoId">
+        <DataField>EmbarazoId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EmbarazoDescripcion">
+        <DataField>EmbarazoDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FechaDesde">
+        <DataField>FechaDesde</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="RazaId">
+        <DataField>RazaId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RazaDescripcion">
+        <DataField>RazaDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TipoUsuarioId">
+        <DataField>TipoUsuarioId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TipoUsuarioDescripcion">
+        <DataField>TipoUsuarioDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FechaHasta">
+        <DataField>FechaHasta</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="NumReg">
+        <DataField>NumReg</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

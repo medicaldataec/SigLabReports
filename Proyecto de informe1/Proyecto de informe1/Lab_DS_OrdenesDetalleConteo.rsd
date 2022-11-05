@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>SigLab</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@EmpId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@OficinaId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@FechaDesde">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@FechaHasta">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@TestExamenId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT CAST(OrdFecha AS date) as Fecha,TestExamenDescripcion,OficinaId,SexoId,SexoDescripcion,SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,OrdEstado,DetUsuIdValidaRechaza,UsuarioValida,EmbarazoId,EmbarazoDescripcion,EtapaHumId,EtapaHumDescripcion,OrdTurno,MedId,MedApellido,MedNombre,PacId,UsuarioId,PacApellido,PacNombre,PacIdentificacion,HistoriaClinica,PacFechaNacimiento,COUNT(*) 
+FROM Reporte.Lab_V_OrdenDetalle
+where EmpId in (@EmpId) and OficinaId in (@OficinaId) and OrdFecha between @FechaDesde and @FechaHasta 
+and TestExamenId in (@TestExamenId)
+GROUP BY CAST(OrdFecha AS DATE), OficinaId,TestExamenDescripcion,sexoId,SexoDescripcion,SalaHospId,SalaHospDescripcion,TestAreaId,TestAreaDescripcion,DetUsuIdValidaRechaza,UsuarioValida,OrdEstado,EmbarazoId,EmbarazoDescripcion,EtapaHumId,EtapaHumDescripcion,OrdTurno,MedId,MedApellido,MedNombre,PacId,UsuarioId,PacApellido,PacNombre,PacIdentificacion,HistoriaClinica,PacFechaNacimiento</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Fecha">
+        <DataField>Fecha</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="TestExamenDescripcion">
+        <DataField>TestExamenDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OficinaId">
+        <DataField>OficinaId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SexoId">
+        <DataField>SexoId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SexoDescripcion">
+        <DataField>SexoDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalaHospId">
+        <DataField>SalaHospId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SalaHospDescripcion">
+        <DataField>SalaHospDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TestAreaId">
+        <DataField>TestAreaId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TestAreaDescripcion">
+        <DataField>TestAreaDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OrdEstado">
+        <DataField>OrdEstado</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DetUsuIdValidaRechaza">
+        <DataField>DetUsuIdValidaRechaza</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="UsuarioValida">
+        <DataField>UsuarioValida</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmbarazoId">
+        <DataField>EmbarazoId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EmbarazoDescripcion">
+        <DataField>EmbarazoDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EtapaHumId">
+        <DataField>EtapaHumId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EtapaHumDescripcion">
+        <DataField>EtapaHumDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OrdTurno">
+        <DataField>OrdTurno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MedId">
+        <DataField>MedId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MedApellido">
+        <DataField>MedApellido</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MedNombre">
+        <DataField>MedNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PacId">
+        <DataField>PacId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="UsuarioId">
+        <DataField>UsuarioId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PacApellido">
+        <DataField>PacApellido</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PacNombre">
+        <DataField>PacNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PacIdentificacion">
+        <DataField>PacIdentificacion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="HistoriaClinica">
+        <DataField>HistoriaClinica</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PacFechaNacimiento">
+        <DataField>PacFechaNacimiento</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ID">
+        <DataField />
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
