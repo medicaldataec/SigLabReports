@@ -79,6 +79,7 @@
     <Report Include="Lab_R_OrdenesDetalle_PRE1.rdl" />
     <Report Include="Lab_R_OrdenesDetalle_RegistroHIV.rdl" />
     <Report Include="Lab_R_OrdenesDetalle_RegistroVDRL_SIFILIS.rdl" />
+    <Report Include="Lab_R_OrdenesDetalle_Transabilitad.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
