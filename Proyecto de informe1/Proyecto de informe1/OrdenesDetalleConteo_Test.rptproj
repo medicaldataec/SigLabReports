@@ -56,9 +56,13 @@
     <DataSource Include="SigLab.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Lab_R_OrdenesConteo_Embarazo.rdl" />
+    <Report Include="Lab_R_OrdenesConteo_EtapaHumana.rdl" />
     <Report Include="Lab_R_OrdenesConteo_Medicos.rdl" />
+    <Report Include="Lab_R_OrdenesConteo_SalaHospital.rdl" />
     <Report Include="Lab_R_OrdenesConteo_Sexo.rdl" />
     <Report Include="Lab_R_OrdenesConteo_Sexo_EtapaHumana.rdl" />
+    <Report Include="Lab_R_OrdenesConteo_TipoUsuario.rdl" />
     <Report Include="Lab_R_OrdenesConteo_UsuarioIngreso.rdl" />
     <Report Include="Lab_R_OrdenesDetalleConteo_Test_Embarazo.rdl" />
     <Report Include="Lab_R_OrdenesDetalleConteo_Test_EtapaHumana.rdl" />
