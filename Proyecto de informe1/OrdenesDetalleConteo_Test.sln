@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "OrdenesDetalleConteo_Test", "Proyecto de informe1\OrdenesDetalleConteo_Test.rptproj", "{6D4F19C9-786A-4FB5-AC71-D065CC5A24B0}"
 EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reportes Operativos SigLab", "..\Reportes Operativos SigLab\Reportes Operativos SigLab\Reportes Operativos SigLab.rptproj", "{14CB628D-30E7-4F4B-8CA0-581FE419009D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Default = Debug|Default
@@ -20,6 +22,14 @@ Global
 		{6D4F19C9-786A-4FB5-AC71-D065CC5A24B0}.Release|Default.ActiveCfg = Release
 		{6D4F19C9-786A-4FB5-AC71-D065CC5A24B0}.Release|Default.Build.0 = Release
 		{6D4F19C9-786A-4FB5-AC71-D065CC5A24B0}.Release|Default.Deploy.0 = Release
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Debug|Default.ActiveCfg = Debug
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Debug|Default.Build.0 = Debug
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Debug|Default.Deploy.0 = Debug
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.DebugLocal|Default.Build.0 = DebugLocal
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Release|Default.ActiveCfg = Release
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Release|Default.Build.0 = Release
+		{14CB628D-30E7-4F4B-8CA0-581FE419009D}.Release|Default.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

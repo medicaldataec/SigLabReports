@@ -10,6 +10,138 @@
     </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="Fac_DS_DocumentosDetalle">
+      <Query>
+        <DataSourceName>SigLab</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@DocId">
+            <Value>=Parameters!DocId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@EstadoId">
+            <Value>=Parameters!EstadoId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT * FROM Facturacion.Fac_V_DocumentosDetalle where DocId in (@DocId) and Estado in (@EstadoId)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="DocDetId">
+          <DataField>DocDetId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DocId">
+          <DataField>DocId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DocFecha">
+          <DataField>DocFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ProId">
+          <DataField>ProId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TipoProductoId">
+          <DataField>TipoProductoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TipoProductoDescripcion">
+          <DataField>TipoProductoDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UniPresId">
+          <DataField>UniPresId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UniPresDescripcion">
+          <DataField>UniPresDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProAbreviatura">
+          <DataField>ProAbreviatura</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProDescripcion">
+          <DataField>ProDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Unidad">
+          <DataField>Unidad</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CostoVenta">
+          <DataField>CostoVenta</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PrecioVenta">
+          <DataField>PrecioVenta</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VentaBruta">
+          <DataField>VentaBruta</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal0">
+          <DataField>SubTotal0</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal1">
+          <DataField>SubTotal1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DescuentoPorc">
+          <DataField>DescuentoPorc</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Descuento">
+          <DataField>Descuento</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal">
+          <DataField>SubTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IvaPorc">
+          <DataField>IvaPorc</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Iva">
+          <DataField>Iva</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Estado">
+          <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InsUserId">
+          <DataField>InsUserId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UsuarioInserta">
+          <DataField>UsuarioInserta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InsFecha">
+          <DataField>InsFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="UpdUserId">
+          <DataField>UpdUserId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UsuarioModifica">
+          <DataField>UsuarioModifica</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UpdFecha">
+          <DataField>UpdFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
     <DataSet Name="Seg_DS_Empresa">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
@@ -95,11 +227,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
+          <QueryParameter Name="@EmpId">
+            <Value>=Parameters!EmpId.Value</Value>
+          </QueryParameter>
           <QueryParameter Name="@OficinaId">
             <Value>=Parameters!OficinaId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Seguridad.Seg_V_Oficina  where OficinaId in (@OficinaId)</CommandText>
+        <CommandText>SELECT * FROM Seguridad.Seg_V_Oficina  where EmpId in (@EmpId) and OficinaId in (@OficinaId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -281,7 +416,7 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Fac_DS_Documento">
+    <DataSet Name="Fac_V_Documento">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -298,13 +433,13 @@
         <CommandText>SELECT * FROM Facturacion.Fac_V_Documento where EmpId in (@EmpId) and DocId in (@DocId) and DocEstadoReg in (@EstadoId)</CommandText>
       </Query>
       <Fields>
-        <Field Name="EmpId">
-          <DataField>EmpId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="Empresa">
           <DataField>Empresa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpId">
+          <DataField>EmpId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="OficinaId">
           <DataField>OficinaId</DataField>
@@ -510,8 +645,20 @@
           <DataField>SalaHospCama</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="InsUserId">
+          <DataField>InsUserId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="EmbarazoId">
           <DataField>EmbarazoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="InsFecha">
+          <DataField>InsFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="UpdUserId">
+          <DataField>UpdUserId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="EmbarazoDescripcion">
@@ -521,6 +668,10 @@
         <Field Name="TipoUsuarioId">
           <DataField>TipoUsuarioId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UpdFecha">
+          <DataField>UpdFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="TipoUsuarioDescripcion">
           <DataField>TipoUsuarioDescripcion</DataField>
@@ -538,29 +689,13 @@
           <DataField>CliParentescoDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="InsUserId">
-          <DataField>InsUserId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="UsuarioInserta">
           <DataField>UsuarioInserta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="InsFecha">
-          <DataField>InsFecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="UpdUserId">
-          <DataField>UpdUserId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="UsuarioModifica">
           <DataField>UsuarioModifica</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UpdFecha">
-          <DataField>UpdFecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="FacId">
           <DataField>FacId</DataField>
@@ -640,138 +775,6 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Fac_DS_DocumentosDetalle">
-      <Query>
-        <DataSourceName>SigLab</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@DocId">
-            <Value>=Parameters!DocId.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <CommandText>SELECT * FROM Facturacion.Fac_V_DocumentosDetalle where DocId in (@DocId) and Estado in (@EstadoId)</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="DocDetId">
-          <DataField>DocDetId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DocId">
-          <DataField>DocId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DocFecha">
-          <DataField>DocFecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="ProId">
-          <DataField>ProId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TipoProductoId">
-          <DataField>TipoProductoId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TipoProductoDescripcion">
-          <DataField>TipoProductoDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UniPresId">
-          <DataField>UniPresId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="UniPresDescripcion">
-          <DataField>UniPresDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ProAbreviatura">
-          <DataField>ProAbreviatura</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ProDescripcion">
-          <DataField>ProDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Unidad">
-          <DataField>Unidad</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="CostoVenta">
-          <DataField>CostoVenta</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="PrecioVenta">
-          <DataField>PrecioVenta</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="VentaBruta">
-          <DataField>VentaBruta</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="SubTotal0">
-          <DataField>SubTotal0</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="SubTotal1">
-          <DataField>SubTotal1</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="DescuentoPorc">
-          <DataField>DescuentoPorc</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Descuento">
-          <DataField>Descuento</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="SubTotal">
-          <DataField>SubTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="IvaPorc">
-          <DataField>IvaPorc</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Iva">
-          <DataField>Iva</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Total">
-          <DataField>Total</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Estado">
-          <DataField>Estado</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="InsUserId">
-          <DataField>InsUserId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="UsuarioInserta">
-          <DataField>UsuarioInserta</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="InsFecha">
-          <DataField>InsFecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="UpdUserId">
-          <DataField>UpdUserId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="UsuarioModifica">
-          <DataField>UsuarioModifica</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UpdFecha">
-          <DataField>UpdFecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -784,9 +787,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Apellido.Value, "Par_DS_Usuario")</Value>
+                    <Value>=Fields!Apellido.Value+" "Fields!Nombre.Value</Value>
                     <Style>
-                      <FontSize>6pt</FontSize>
+                      <FontSize>5pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -796,10 +799,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Apellido</rd:DefaultName>
-            <Top>3.84583cm</Top>
-            <Left>1.64068cm</Left>
+            <Top>2.67731cm</Top>
+            <Left>1.26272cm</Left>
             <Height>0.42361cm</Height>
-            <Width>2.5cm</Width>
+            <Width>5.06823cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -819,7 +822,7 @@
                   <TextRun>
                     <Value>Usuario:</Value>
                     <Style>
-                      <FontSize>6pt</FontSize>
+                      <FontSize>5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -828,278 +831,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>3.84583cm</Top>
-            <Left>0.4337cm</Left>
+            <Top>2.67731cm</Top>
+            <Left>0.409cm</Left>
             <Height>0.42361cm</Height>
-            <Width>1.17828cm</Width>
+            <Width>0.85372cm</Width>
             <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="EmpNombre">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!EmpNombre.Value, "Seg_DS_Empresa")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>EmpNombre</rd:DefaultName>
-            <Top>0.03528cm</Top>
-            <Left>0.4337cm</Left>
-            <Height>0.44478cm</Height>
-            <Width>5.56917cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="EmpDireccion">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!EmpDireccion.Value, "Seg_DS_Empresa")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>EmpDireccion</rd:DefaultName>
-            <Top>0.55061cm</Top>
-            <Left>0.4337cm</Left>
-            <Height>0.45183cm</Height>
-            <Width>5.56917cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox21">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Orden:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.073cm</Top>
-            <Left>0.4337cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>0.90311cm</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="DocId">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!DocId.Value, "Fac_DS_DocumentosDetalle")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>DocId</rd:DefaultName>
-            <Top>1.073cm</Top>
-            <Left>1.40737cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>0.93367cm</Width>
-            <ZIndex>5</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox22">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Fecha:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.073cm</Top>
-            <Left>2.51742cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>0.77611cm</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="DocFecha">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!DocFecha.Value, "Fac_DS_DocumentosDetalle")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <Format>d</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>DocFecha</rd:DefaultName>
-            <Top>1.073cm</Top>
-            <Left>3.36409cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>1.38995cm</Width>
-            <ZIndex>7</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Cliente">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Cliente.Value, "Fac_DS_Documento")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Cliente</rd:DefaultName>
-            <Top>1.60244cm</Top>
-            <Left>1.40737cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>4.60723cm</Width>
-            <ZIndex>8</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="CliIdentificacion">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CliIdentificacion.Value, "Fac_DS_Documento")</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CliIdentificacion</rd:DefaultName>
-            <Top>2.13189cm</Top>
-            <Left>1.54376cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>2.59693cm</Width>
-            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1117,9 +853,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Cliente:</Value>
+                    <Value>Paciente:</Value>
                     <Style>
-                      <FontSize>6pt</FontSize>
+                      <FontSize>5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1128,11 +864,77 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.60244cm</Top>
+            <Top>0.09117cm</Top>
             <Left>0.4337cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>0.90311cm</Width>
-            <ZIndex>10</ZIndex>
+            <Height>0.36717cm</Height>
+            <Width>0.85372cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PacApellido">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!PacApellido.Value+" "+Fields!PacNombre.Value</Value>
+                    <Style>
+                      <FontSize>5pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PacApellido</rd:DefaultName>
+            <Top>0.09117cm</Top>
+            <Left>1.3227cm</Left>
+            <Height>0.38184cm</Height>
+            <Width>4.57075cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="OrdTurno">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!OrdTurno.Value, "Fac_V_Documento")</Value>
+                    <Style>
+                      <FontSize>5pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>OrdTurno</rd:DefaultName>
+            <Top>0.54356cm</Top>
+            <Left>1.3227cm</Left>
+            <Height>0.36717cm</Height>
+            <Width>4.57075cm</Width>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1150,9 +952,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>C.I/RUC:</Value>
+                    <Value>Analisis:</Value>
                     <Style>
-                      <FontSize>6pt</FontSize>
+                      <FontSize>5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1161,11 +963,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>2.13189cm</Top>
+            <Top>0.54356cm</Top>
             <Left>0.4337cm</Left>
-            <Height>0.42361cm</Height>
-            <Width>1.02777cm</Width>
-            <ZIndex>11</ZIndex>
+            <Height>0.36717cm</Height>
+            <Width>0.85372cm</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1180,54 +982,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.90311cm</Width>
+                  <Width>1.66316cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.82971cm</Width>
+                  <Width>2.12291cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.93032cm</Width>
+                  <Width>1.66316cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.34835cm</Height>
+                  <Height>0.31637cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox10">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Cantidad</Value>
-                                  <Style>
-                                    <FontSize>5pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox10</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox12">
@@ -1237,7 +1004,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Examen</Value>
+                                  <Value>Cantidad</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1272,7 +1039,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total</Value>
+                                  <Value>Examen</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1280,7 +1047,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1298,10 +1065,45 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Total</Value>
+                                  <Style>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.34835cm</Height>
+                  <Height>0.31637cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1315,7 +1117,6 @@
                                   <Value>=Fields!Unidad.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
-                                    <Format>0;(0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1407,11 +1208,11 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.38363cm</Height>
+                  <Height>0.27403cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox16">
+                        <Textbox Name="Textbox25">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1427,11 +1228,11 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <rd:DefaultName>Textbox25</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1449,7 +1250,7 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox18">
+                        <Textbox Name="Textbox27">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1469,7 +1270,164 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <rd:DefaultName>Textbox27</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.27403cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox29">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Abono</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox29</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox31">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Abono.Value, "Fac_V_Documento")</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox31</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.28109cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox32">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Saldo</Value>
+                                  <Style>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox34">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Saldo.Value, "Fac_V_Documento"</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox34</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1505,14 +1463,20 @@
                 <TablixMember>
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Fac_DS_DocumentosDetalle</DataSetName>
-            <Top>2.62605cm</Top>
+            <Top>1.05184cm</Top>
             <Left>0.4337cm</Left>
-            <Height>1.08033cm</Height>
-            <Width>4.66315cm</Width>
-            <ZIndex>12</ZIndex>
+            <Height>1.46189cm</Height>
+            <Width>5.44922cm</Width>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1520,15 +1484,386 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.70866in</Height>
+        <Height>1.26944in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>
       <Page>
         <PageHeader>
-          <Height>0.24694cm</Height>
+          <Height>3.16258cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="EmpNombre">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!EmpNombre.Value, "Seg_DS_Empresa")</Value>
+                      <Style>
+                        <FontSize>6pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>EmpNombre</rd:DefaultName>
+              <Top>0.22903cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.45183cm</Height>
+              <Width>6.25872cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Orden:</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox16</rd:DefaultName>
+              <Top>1.74681cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>0.74317cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="EmpDireccion">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!EmpDireccion.Value, "Seg_DS_Empresa")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>EmpDireccion</rd:DefaultName>
+              <Top>0.75142cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.43067cm</Height>
+              <Width>6.25872cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="EmpTelefono">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!EmpTelefono.Value, "Seg_DS_Empresa")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>EmpTelefono</rd:DefaultName>
+              <Top>1.18209cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.38833cm</Height>
+              <Width>6.25872cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="DocId">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Sum(Fields!DocId.Value, "Fac_V_Documento")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>DocId</rd:DefaultName>
+              <Top>1.74681cm</Top>
+              <Left>1.21567cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>1.2935cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox19">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Fecha:</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox16</rd:DefaultName>
+              <Top>1.74681cm</Top>
+              <Left>2.64675cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>0.70789cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="DocFecha">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!DocFecha.Value, "Fac_V_Documento")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <Format>d</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>DocFecha</rd:DefaultName>
+              <Top>1.74681cm</Top>
+              <Left>3.39345cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Cliente">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!Cliente.Value, "Fac_V_Documento")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Cliente</rd:DefaultName>
+              <Top>2.25509cm</Top>
+              <Left>1.21215cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>4.6813cm</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox21">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Cliente:</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox16</rd:DefaultName>
+              <Top>2.25509cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>0.74317cm</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox22">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>C.I/RUC:</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox16</rd:DefaultName>
+              <Top>2.68788cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>0.85372cm</Width>
+              <ZIndex>9</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="CliIdentificacion">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!CliIdentificacion.Value, "Fac_V_Documento")</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>CliIdentificacion</rd:DefaultName>
+              <Top>2.68788cm</Top>
+              <Left>1.3227cm</Left>
+              <Height>0.36717cm</Height>
+              <Width>4.57075cm</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1536,10 +1871,24 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.51506cm</Height>
+          <Height>1.25589cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
+            <Image Name="Image1">
+              <Source>Embedded</Source>
+              <Value>MEDICALDATA</Value>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.17639cm</Top>
+              <Left>0.4337cm</Left>
+              <Height>0.46283cm</Height>
+              <Width>2.48778cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
             <Textbox Name="FechaHasta2">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -1551,19 +1900,21 @@
                       <Style>
                         <FontSize>5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                        <Format>d</Format>
+                        <Format>g</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FechaHasta</rd:DefaultName>
-              <Left>3.18474cm</Left>
-              <Height>0.49811cm</Height>
-              <Width>2.22483cm</Width>
+              <Top>0.17639cm</Top>
+              <Left>3.21344cm</Left>
+              <Height>0.46283cm</Height>
+              <Width>3.46676cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1574,21 +1925,42 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Image Name="Image1">
-              <Source>Embedded</Source>
-              <Value>MEDICALDATA</Value>
-              <Sizing>FitProportional</Sizing>
-              <Top>0.03528cm</Top>
-              <Left>0.405cm</Left>
+            <Textbox Name="FechaHasta3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style>
+                        <FontSize>5pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>d</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>FechaHasta</rd:DefaultName>
+              <Top>0.71683cm</Top>
+              <Left>3.90498cm</Left>
               <Height>0.46283cm</Height>
-              <Width>2.48778cm</Width>
-              <ZIndex>1</ZIndex>
+              <Width>2.77522cm</Width>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
-            </Image>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -1621,14 +1993,14 @@
       <DataType>String</DataType>
       <Prompt>Estado Id</Prompt>
     </ReportParameter>
+    <ReportParameter Name="DocId">
+      <DataType>String</DataType>
+      <Prompt>Doc Id</Prompt>
+    </ReportParameter>
     <ReportParameter Name="UsuarioId">
       <DataType>Integer</DataType>
       <Prompt>Usuario Id</Prompt>
       <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="DocId">
-      <DataType>String</DataType>
-      <Prompt>Doc Id</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -1652,13 +2024,13 @@
           <ParameterName>EstadoId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>UsuarioId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>DocId</ParameterName>
         </CellDefinition>
       </CellDefinitions>
