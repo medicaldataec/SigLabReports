@@ -112,38 +112,50 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Ctl_DS_Categoria">
+    <DataSet Name="Ctl_DS_SalaHospitalOficina">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@EmpId">
             <Value>=Parameters!EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
+          <QueryParameter Name="@OficinaId">
+            <Value>=Parameters!OficinaId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>select * from Catalogo.Ctl_V_Categoria where EmpId in (@EmpId) and Estado in (@EstadoId) </CommandText>
+        <CommandText>SELECT *  FROM Catalogo.Ctl_V_SalaHospitalOficina WHERE EmpId in (@EmpId) and OficinaId in (@OficinaId)</CommandText>
       </Query>
       <Fields>
-        <Field Name="CategoriaId">
-          <DataField>CategoriaId</DataField>
+        <Field Name="SalaHospId">
+          <DataField>SalaHospId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="EmpId">
           <DataField>EmpId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="CategoriaDescripcion">
-          <DataField>CategoriaDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="SalaHospOficinaId">
+          <DataField>SalaHospOficinaId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="CategoriaCodigo">
-          <DataField>CategoriaCodigo</DataField>
+        <Field Name="SalaHospDescripcion">
+          <DataField>SalaHospDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Estado">
           <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SalaHospCodigo">
+          <DataField>SalaHospCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaId">
+          <DataField>OficinaId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="OficinaNombre">
+          <DataField>OficinaNombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="InsUserId">
@@ -244,6 +256,98 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="Seg_DS_Oficina">
+      <Query>
+        <DataSourceName>SigLab</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@EmpId">
+            <Value>=Parameters!EmpId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OficinaId">
+            <Value>=Parameters!OficinaId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT *  FROM Seguridad.Seg_V_Oficina WHERE EmpId in (@EmpId) and OficinaId in (@OficinaId)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="EmpId">
+          <DataField>EmpId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="OficinaId">
+          <DataField>OficinaId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PaisId">
+          <DataField>PaisId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProvId">
+          <DataField>ProvId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CiuId">
+          <DataField>CiuId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PaisDescripcion">
+          <DataField>PaisDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProvDescripcion">
+          <DataField>ProvDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CiuDescripcion">
+          <DataField>CiuDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaRuc">
+          <DataField>OficinaRuc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaNombre">
+          <DataField>OficinaNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaNombreCorto">
+          <DataField>OficinaNombreCorto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaDireccion">
+          <DataField>OficinaDireccion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Estado">
+          <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaCelular">
+          <DataField>OficinaCelular</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaTelefono">
+          <DataField>OficinaTelefono</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaCorreo">
+          <DataField>OficinaCorreo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaWeb">
+          <DataField>OficinaWeb</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OficinaLogo">
+          <DataField>OficinaLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -267,7 +371,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>0.98015cm</Top>
+            <Top>1.0754cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.42361cm</Height>
             <Width>0.87843cm</Width>
@@ -298,7 +402,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Apellido</rd:DefaultName>
-            <Top>0.98015cm</Top>
+            <Top>1.0754cm</Top>
             <Left>1.24157cm</Left>
             <Height>0.42361cm</Height>
             <Width>4.57075cm</Width>
@@ -317,18 +421,21 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.54481cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.96634cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1.74757cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.64817cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.22483cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.36717cm</Height>
+                  <Height>0.42361cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -357,6 +464,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -367,14 +475,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Descripcion</Value>
+                                  <Value>Oficina Nombre</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -386,12 +494,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -402,14 +511,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox17">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Codigo</Value>
+                                  <Value>Sala Descripcion</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -421,12 +530,49 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Sala Codigo</Value>
+                                  <Style>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -438,18 +584,18 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.36717cm</Height>
+                  <Height>0.45184cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaId">
+                        <Textbox Name="SalaHospOficinaId">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaId.Value</Value>
+                                  <Value>=Fields!SalaHospOficinaId.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -460,12 +606,49 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaId</rd:DefaultName>
+                          <rd:DefaultName>SalaHospOficinaId</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="OficinaNombre">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!OficinaNombre.Value</Value>
+                                  <Style>
+                                    <FontSize>5pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>OficinaNombre</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -476,14 +659,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaDescripcion">
+                        <Textbox Name="SalaHospDescripcion">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaDescripcion.Value</Value>
+                                  <Value>=Fields!SalaHospDescripcion.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -494,12 +677,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaDescripcion</rd:DefaultName>
+                          <rd:DefaultName>SalaHospDescripcion</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -510,14 +694,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaCodigo">
+                        <Textbox Name="SalaHospCodigo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaCodigo.Value</Value>
+                                  <Value>=Fields!SalaHospCodigo.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -528,12 +712,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaCodigo</rd:DefaultName>
+                          <rd:DefaultName>SalaHospCodigo</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -551,6 +736,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -563,11 +749,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Ctl_DS_Categoria</DataSetName>
+            <DataSetName>Ctl_DS_SalaHospitalOficina</DataSetName>
             <Top>0.13998cm</Top>
             <Left>0.4337cm</Left>
-            <Height>0.73434cm</Height>
-            <Width>6.25872cm</Width>
+            <Height>0.87545cm</Height>
+            <Width>9.12057cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -576,7 +762,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.59248in</Height>
+        <Height>0.60915in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>
@@ -815,6 +1001,11 @@
       <DataType>String</DataType>
       <Prompt>Estado Id</Prompt>
     </ReportParameter>
+    <ReportParameter Name="OficinaId">
+      <DataType>Integer</DataType>
+      <Prompt>Oficina Id</Prompt>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
     <ReportParameter Name="UsuarioId">
       <DataType>Integer</DataType>
       <Prompt>Usuario Id</Prompt>
@@ -837,9 +1028,14 @@
           <ParameterName>EstadoId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>UsuarioId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>OficinaId</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

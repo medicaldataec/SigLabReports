@@ -112,38 +112,39 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Ctl_DS_Categoria">
+    <DataSet Name="Ctl_DS_SalaHospital">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@EmpId">
             <Value>=Parameters!EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
-          </QueryParameter>
         </QueryParameters>
-        <CommandText>select * from Catalogo.Ctl_V_Categoria where EmpId in (@EmpId) and Estado in (@EstadoId) </CommandText>
+        <CommandText>SELECT *  FROM Catalogo.Ctl_V_SalaHospital WHERE EmpId in (@EmpId)</CommandText>
       </Query>
       <Fields>
-        <Field Name="CategoriaId">
-          <DataField>CategoriaId</DataField>
+        <Field Name="SalaHospId">
+          <DataField>SalaHospId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="EmpId">
           <DataField>EmpId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="CategoriaDescripcion">
-          <DataField>CategoriaDescripcion</DataField>
+        <Field Name="EmpNombre">
+          <DataField>EmpNombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CategoriaCodigo">
-          <DataField>CategoriaCodigo</DataField>
+        <Field Name="SalaHospDescripcion">
+          <DataField>SalaHospDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Estado">
           <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SalaHospCodigo">
+          <DataField>SalaHospCodigo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="InsUserId">
@@ -267,7 +268,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>0.98015cm</Top>
+            <Top>1.0754cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.42361cm</Height>
             <Width>0.87843cm</Width>
@@ -298,7 +299,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Apellido</rd:DefaultName>
-            <Top>0.98015cm</Top>
+            <Top>1.0754cm</Top>
             <Left>1.24157cm</Left>
             <Height>0.42361cm</Height>
             <Width>4.57075cm</Width>
@@ -317,18 +318,18 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.54481cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.96634cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1.74757cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.64817cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.22483cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.36717cm</Height>
+                  <Height>0.42361cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -357,6 +358,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -367,14 +369,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Descripcion</Value>
+                                  <Value>Sala Descripcion</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -386,12 +388,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -402,14 +405,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox17">
+                        <Textbox Name="Textbox3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Codigo</Value>
+                                  <Value>Sala Codigo</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -421,12 +424,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -438,18 +442,18 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.36717cm</Height>
+                  <Height>0.45184cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaId">
+                        <Textbox Name="SalaHospId">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaId.Value</Value>
+                                  <Value>=Fields!SalaHospId.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -460,12 +464,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaId</rd:DefaultName>
+                          <rd:DefaultName>SalaHospId</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -476,14 +481,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaDescripcion">
+                        <Textbox Name="SalaHospDescripcion">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaDescripcion.Value</Value>
+                                  <Value>=Fields!SalaHospDescripcion.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -494,12 +499,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaDescripcion</rd:DefaultName>
+                          <rd:DefaultName>SalaHospDescripcion</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -510,14 +516,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaCodigo">
+                        <Textbox Name="SalaHospCodigo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaCodigo.Value</Value>
+                                  <Value>=Fields!SalaHospCodigo.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -528,12 +534,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaCodigo</rd:DefaultName>
+                          <rd:DefaultName>SalaHospCodigo</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -563,11 +570,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Ctl_DS_Categoria</DataSetName>
+            <DataSetName>Ctl_DS_SalaHospital</DataSetName>
             <Top>0.13998cm</Top>
             <Left>0.4337cm</Left>
-            <Height>0.73434cm</Height>
-            <Width>6.25872cm</Width>
+            <Height>0.87545cm</Height>
+            <Width>6.62057cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -576,7 +583,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.59248in</Height>
+        <Height>0.60915in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>

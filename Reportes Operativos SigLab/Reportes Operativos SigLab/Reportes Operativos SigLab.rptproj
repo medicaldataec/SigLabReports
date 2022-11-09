@@ -57,8 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="Oper_R_Catalogo_Categoria.rdl" />
+    <Report Include="Oper_R_Catalogo_EspecialidadMedico.rdl" />
+    <Report Include="Oper_R_Catalogo_EtapaHumana.rdl" />
+    <Report Include="Oper_R_Catalogo_Parentesco.rdl" />
     <Report Include="Oper_R_Catalogo_Raza.rdl" />
+    <Report Include="Oper_R_Catalogo_SalaHospital.rdl" />
+    <Report Include="Oper_R_Catalogo_SalaHospitalOficina.rdl" />
     <Report Include="Oper_R_Catalogo_TipoUsuario.rdl" />
+    <Report Include="Oper_R_Catalogo_Triaje.rdl" />
     <Report Include="Oper_R_Catalogo_UnidadTest.rdl" />
     <Report Include="Oper_R_ListadoFactura_Cliente.rdl" />
     <Report Include="Oper_R_ListadoFactura_Medico.rdl" />

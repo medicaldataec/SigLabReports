@@ -112,7 +112,7 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Ctl_DS_Categoria">
+    <DataSet Name="Ctl_DS_Parentesco">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -123,23 +123,19 @@
             <Value>=Parameters!EstadoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>select * from Catalogo.Ctl_V_Categoria where EmpId in (@EmpId) and Estado in (@EstadoId) </CommandText>
+        <CommandText>SELECT *  FROM Catalogo.Ctl_V_Parentesco WHERE EmpId in (@EmpId) and Estado in (@EstadoId)</CommandText>
       </Query>
       <Fields>
-        <Field Name="CategoriaId">
-          <DataField>CategoriaId</DataField>
+        <Field Name="ParentescoId">
+          <DataField>ParentescoId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="EmpId">
           <DataField>EmpId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="CategoriaDescripcion">
-          <DataField>CategoriaDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CategoriaCodigo">
-          <DataField>CategoriaCodigo</DataField>
+        <Field Name="ParentescoDescripcion">
+          <DataField>ParentescoDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Estado">
@@ -161,6 +157,14 @@
         <Field Name="UpdFecha">
           <DataField>UpdFecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Default">
+          <DataField>Default</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ParentescoCodigo">
+          <DataField>ParentescoCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -317,13 +321,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.54481cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.96634cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1.74757cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.64817cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.22483cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -367,14 +371,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Descripcion</Value>
+                                  <Value>Parentesco Descripcion</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -386,7 +390,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -402,14 +406,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox17">
+                        <Textbox Name="Textbox3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Categoria Codigo</Value>
+                                  <Value>Parentesco Codigo</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -421,7 +425,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -442,14 +446,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaId">
+                        <Textbox Name="ParentescoId">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaId.Value</Value>
+                                  <Value>=Fields!ParentescoId.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -460,7 +464,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaId</rd:DefaultName>
+                          <rd:DefaultName>ParentescoId</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -476,14 +480,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaDescripcion">
+                        <Textbox Name="ParentescoDescripcion">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaDescripcion.Value</Value>
+                                  <Value>=Fields!ParentescoDescripcion.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -494,7 +498,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaDescripcion</rd:DefaultName>
+                          <rd:DefaultName>ParentescoDescripcion</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -510,14 +514,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoriaCodigo">
+                        <Textbox Name="ParentescoCodigo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoriaCodigo.Value</Value>
+                                  <Value>=Fields!ParentescoCodigo.Value</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
                                   </Style>
@@ -528,7 +532,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoriaCodigo</rd:DefaultName>
+                          <rd:DefaultName>ParentescoCodigo</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -563,11 +567,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Ctl_DS_Categoria</DataSetName>
+            <DataSetName>Ctl_DS_Parentesco</DataSetName>
             <Top>0.13998cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.73434cm</Height>
-            <Width>6.25872cm</Width>
+            <Width>6.62057cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
