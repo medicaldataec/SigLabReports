@@ -66,6 +66,10 @@
     <Report Include="Oper_R_Catalogo_TipoUsuario.rdl" />
     <Report Include="Oper_R_Catalogo_Triaje.rdl" />
     <Report Include="Oper_R_Catalogo_UnidadTest.rdl" />
+    <Report Include="Oper_R_Lab_Rango.rdl" />
+    <Report Include="Oper_R_Lab_RangoReferencial.rdl" />
+    <Report Include="Oper_R_Lab_Test.rdl" />
+    <Report Include="Oper_R_Lab_TestArea.rdl" />
     <Report Include="Oper_R_ListadoFactura_Cliente.rdl" />
     <Report Include="Oper_R_ListadoFactura_Medico.rdl" />
     <Report Include="Oper_R_ListadoFactura_MedicoPorFecha.rdl" />
