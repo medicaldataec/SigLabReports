@@ -66,16 +66,21 @@
     <Report Include="Oper_R_Catalogo_TipoUsuario.rdl" />
     <Report Include="Oper_R_Catalogo_Triaje.rdl" />
     <Report Include="Oper_R_Catalogo_UnidadTest.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_Categoria.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_Cliente.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_Medico.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_MedicoPorFecha.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_Parentesco.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_Vendedor.rdl" />
+    <Report Include="Oper_R_Factura_ListadoFactura_VendedorPorFecha.rdl" />
+    <Report Include="Oper_R_Factura_TicketFactura.rdl" />
     <Report Include="Oper_R_Lab_Rango.rdl" />
     <Report Include="Oper_R_Lab_RangoReferencial.rdl" />
     <Report Include="Oper_R_Lab_Test.rdl" />
     <Report Include="Oper_R_Lab_TestArea.rdl" />
-    <Report Include="Oper_R_ListadoFactura_Cliente.rdl" />
-    <Report Include="Oper_R_ListadoFactura_Medico.rdl" />
-    <Report Include="Oper_R_ListadoFactura_MedicoPorFecha.rdl" />
-    <Report Include="Oper_R_ListadoFactura_Vendedor.rdl" />
-    <Report Include="Oper_R_ListadoFactura_VendedorPorFecha.rdl" />
-    <Report Include="Oper_R_TicketFactura.rdl" />
+    <Report Include="Oper_R_Participante_MedicoEspecialidad.rdl" />
+    <Report Include="Oper_R_Participante_Medicos.rdl" />
+    <Report Include="Oper_R_Participante_Vendedores.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
