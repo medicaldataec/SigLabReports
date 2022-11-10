@@ -513,11 +513,11 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
           <QueryParameter Name="@EmpId">
             <Value>=Parameters!EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@TestAreaId">
-            <Value>=Parameters!TestAreaId.Value</Value>
+          <QueryParameter Name="@AreaId">
+            <Value>=Parameters!AreaId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Laboratorio.Lab_V_Test where EmpId in (@EmpId) and AreaId in (@TestAreaId)</CommandText>
+        <CommandText>SELECT * FROM Laboratorio.Lab_V_Test where EmpId in (@EmpId) and AreaId in (@AreaId)</CommandText>
       </Query>
       <Fields>
         <Field Name="TestId">
@@ -871,6 +871,9 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -888,7 +891,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Código dependencia}</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -923,7 +926,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Reclamo</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -957,7 +960,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>Fecha Atención</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -992,7 +995,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Cli Categoria Id</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1027,7 +1030,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Identificación beneficiario</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1061,7 +1064,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>Nombre beneficiario</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1096,7 +1099,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>Sexo beneficiario</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1131,7 +1134,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Fecha nacimiento beneficiario</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1166,7 +1169,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Edad beneficiario</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1201,7 +1204,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Tipo Examen</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1236,7 +1239,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Test Codigo IESS</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1271,7 +1274,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Test Examen Descripcion</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1306,7 +1309,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Ord Diagnostico</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1341,7 +1344,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Ord Diagnostico</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1376,7 +1379,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Ord Diagnostico</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1411,7 +1414,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>cantidad</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1446,7 +1449,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>Test Costo</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1456,6 +1459,45 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox52</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Duración Consulta</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Cambria</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1486,7 +1528,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!Codigo.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1521,7 +1563,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1555,7 +1597,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>=Fields!Fecha.Value</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1590,7 +1632,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!CliCategoriaId.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1625,7 +1667,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!PacIdentificacion.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1659,7 +1701,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>=Fields!PacApellido.Value+" "+Fields!PacNombre.Value</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1693,7 +1735,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                 <TextRun>
                                   <Value>=Fields!SexoCodigo.Value</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1728,7 +1770,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!PacFechaNacimiento.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                     <Format>d</Format>
                                   </Style>
                                 </TextRun>
@@ -1764,7 +1806,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!edad.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1799,7 +1841,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Replace(Fields!EmpId.Value,"35","LAB")</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1834,7 +1876,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!TestCodigoIESS.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1869,7 +1911,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!TestExamenDescripcion.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1904,7 +1946,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!OrdDiagnostico.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1939,7 +1981,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1974,7 +2016,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2009,7 +2051,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!numreg.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2030,7 +2072,6 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2045,7 +2086,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                                   <Value>=Fields!TestCosto.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2055,6 +2096,41 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>TestCosto</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2091,6 +2167,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2106,8 +2183,8 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
             <DataSetName>Lab_DS_OrdenesDetalle</DataSetName>
             <Top>0.17639cm</Top>
             <Left>0.42148cm</Left>
-            <Height>1.43283cm</Height>
-            <Width>29.90584cm</Width>
+            <Height>1.43284cm</Height>
+            <Width>32.40585cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -2116,7 +2193,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.31077in</Height>
+        <Height>15.12344in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>

@@ -294,17 +294,17 @@
           <QueryParameter Name="@EstadoId">
             <Value>=Parameters!EstadoId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@CliIdentificacion">
-            <Value>=Parameters!CliIdentificacion.Value</Value>
-          </QueryParameter>
           <QueryParameter Name="@FechaDesde">
             <Value>=Parameters!FechaDesde.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@FechaHasta">
             <Value>=Parameters!FechaHasta.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@ParentescoId">
+            <Value>=Parameters!ParentescoId.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Facturacion.Fac_V_Documento where EmpId in (@EmpId) and DocEstadoReg in (@EstadoId) and CliIdentificacion in (@CliIdentificacion) and DocFecha between @FechaDesde and @FechaHasta</CommandText>
+        <CommandText>SELECT * FROM Facturacion.Fac_V_Documento where EmpId in (@EmpId) and DocEstadoReg in (@EstadoId) and DocFecha between @FechaDesde and @FechaHasta and CliParentescoId in (@ParentescoId)</CommandText>
       </Query>
       <Fields>
         <Field Name="Empresa">
@@ -395,6 +395,10 @@
           <DataField>CliCategoriaId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="CliCategoriaCodigo">
+          <DataField>CliCategoriaCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="CliCategoriaDescripcion">
           <DataField>CliCategoriaDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -463,6 +467,10 @@
           <DataField>PacCategoriaDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="PacCategoriaCodigo">
+          <DataField>PacCategoriaCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="MedId">
           <DataField>MedId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -519,6 +527,10 @@
           <DataField>SalaHospCama</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SalaHospCodigo">
+          <DataField>SalaHospCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="InsUserId">
           <DataField>InsUserId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -558,6 +570,10 @@
         <Field Name="CliParentescoId">
           <DataField>CliParentescoId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CliParentescoCodigo">
+          <DataField>CliParentescoCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CliParentescoDescripcion">
           <DataField>CliParentescoDescripcion</DataField>
@@ -649,58 +665,58 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Par_DS_Cliente">
+    <DataSet Name="Ctl_DS_Parentesco">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@EmpId">
             <Value>=Parameters!EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@CliIdentificacion">
-            <Value>=Parameters!CliIdentificacion.Value</Value>
+          <QueryParameter Name="@ParentescoId">
+            <Value>=Parameters!ParentescoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM  Reporte.Par_V_Cliente where EmpId in (@EmpId) and Identificacion in (@CliIdentificacion)</CommandText>
+        <CommandText>SELECT * FROM  Catalogo.Ctl_V_Parentesco where EmpId in (@EmpId) and ParentescoId in (@ParentescoId)</CommandText>
       </Query>
       <Fields>
+        <Field Name="ParentescoId">
+          <DataField>ParentescoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="EmpId">
           <DataField>EmpId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ParticipanteId">
-          <DataField>ParticipanteId</DataField>
+        <Field Name="ParentescoDescripcion">
+          <DataField>ParentescoDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Estado">
+          <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InsUserId">
+          <DataField>InsUserId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TipoIdentificacionId">
-          <DataField>TipoIdentificacionId</DataField>
+        <Field Name="InsFecha">
+          <DataField>InsFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="UpdUserId">
+          <DataField>UpdUserId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TipoIdentificacionDescripcion">
-          <DataField>TipoIdentificacionDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="UpdFecha">
+          <DataField>UpdFecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Identificacion">
-          <DataField>Identificacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="Default">
+          <DataField>Default</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="TipoParticipanteId">
-          <DataField>TipoParticipanteId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UsuarioId">
-          <DataField>UsuarioId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Nombre">
-          <DataField>Nombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Apellido">
-          <DataField>Apellido</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Cliente">
-          <DataField>Cliente</DataField>
+        <Field Name="ParentescoCodigo">
+          <DataField>ParentescoCodigo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -724,6 +740,12 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.94967cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.09783cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.38403cm</Width>
@@ -894,6 +916,80 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox36</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox22">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Cli Parentesco</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox22</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox20">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Cli Parentesco Codigo</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1423,6 +1519,76 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="CliParentescoDescripcion">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CliParentescoDescripcion.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CliParentescoDescripcion</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CliParentescoCodigo">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CliParentescoCodigo.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>5pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CliParentescoCodigo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="CliIdentificacion1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1812,9 +1978,11 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>8</ColSpan>
+                        <ColSpan>10</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -2062,6 +2230,8 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2081,24 +2251,24 @@
             <Top>0.79672cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.96377cm</Height>
-            <Width>24.80936cm</Width>
+            <Width>29.40719cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Tablix Name="Tablix4">
+          <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
                   <Width>0.97649cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.23215cm</Width>
+                  <Width>4.02237cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.05008cm</Width>
+                  <Width>1.75917cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2343,15 +2513,15 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Detalles3" />
+                  <Group Name="Detalles2" />
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Par_DS_Usuario</DataSetName>
-            <Top>1.86279cm</Top>
+            <Top>1.86632cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.53678cm</Height>
-            <Width>6.25872cm</Width>
+            <Width>6.75803cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2359,17 +2529,17 @@
               </Border>
             </Style>
           </Tablix>
-          <Tablix Name="Tablix5">
+          <Tablix Name="Tablix3">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
                   <Width>0.97649cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.23215cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.05008cm</Width>
+                  <Width>1.88801cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2415,14 +2585,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox12">
+                        <Textbox Name="Textbox14">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cliente</Value>
+                                  <Value>Parentesco Descripcion</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>5pt</FontSize>
@@ -2435,7 +2605,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2452,14 +2622,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox14">
+                        <Textbox Name="Textbox4">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Identificacion</Value>
+                                  <Value>Parentesco Codigo</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>5pt</FontSize>
@@ -2472,7 +2642,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2501,7 +2671,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ParticipanteId.Value</Value>
+                                  <Value>=Fields!ParentescoId.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>5pt</FontSize>
@@ -2529,14 +2699,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Apellido3">
+                        <Textbox Name="ParentescoDescripcion">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Cliente.Value</Value>
+                                  <Value>=Fields!ParentescoDescripcion.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>5pt</FontSize>
@@ -2548,7 +2718,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Apellido</rd:DefaultName>
+                          <rd:DefaultName>ParentescoDescripcion</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2564,14 +2734,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Identificacion2">
+                        <Textbox Name="ParentescoCodigo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Identificacion.Value</Value>
+                                  <Value>=Fields!ParentescoCodigo.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>5pt</FontSize>
@@ -2583,7 +2753,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Identificacion</rd:DefaultName>
+                          <rd:DefaultName>ParentescoCodigo</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2614,15 +2784,15 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Detalles4" />
+                  <Group Name="Detalles3" />
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Par_DS_Cliente</DataSetName>
-            <Top>0.11882cm</Top>
+            <DataSetName>Ctl_DS_Parentesco</DataSetName>
+            <Top>0.10583cm</Top>
             <Left>0.4337cm</Left>
             <Height>0.53678cm</Height>
-            <Width>6.25872cm</Width>
+            <Width>5.3645cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -2631,13 +2801,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.97111in</Height>
+        <Height>1.01555in</Height>
         <Style />
       </Body>
       <Width>15.12344in</Width>
       <Page>
         <PageHeader>
-          <Height>1.97724cm</Height>
+          <Height>2.01957cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2833,7 +3003,7 @@
               <rd:DefaultName>Textbox16</rd:DefaultName>
               <Top>1.56336cm</Top>
               <Left>3.05245cm</Left>
-              <Height>0.36717cm</Height>
+              <Height>0.36012cm</Height>
               <Width>1.23cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
@@ -2888,7 +3058,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.27cm</Height>
+          <Height>1.31724cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2962,8 +3132,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FechaHasta</rd:DefaultName>
-              <Top>0.57219cm</Top>
-              <Left>3.9172cm</Left>
+              <Top>0.46283cm</Top>
+              <Left>3.90498cm</Left>
               <Height>0.46283cm</Height>
               <Width>2.77522cm</Width>
               <ZIndex>2</ZIndex>
@@ -3013,18 +3183,18 @@
       <DataType>String</DataType>
       <Prompt>Estado Id</Prompt>
     </ReportParameter>
-    <ReportParameter Name="UsuarioId">
+    <ReportParameter Name="ParentescoId">
       <DataType>Integer</DataType>
-      <Prompt>Usuario Id</Prompt>
+      <Prompt>Parentesco Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
     <ReportParameter Name="FechaHasta">
       <DataType>DateTime</DataType>
       <Prompt>Fecha Hasta</Prompt>
     </ReportParameter>
-    <ReportParameter Name="CliIdentificacion">
-      <DataType>String</DataType>
-      <Prompt>Cli Identificacion</Prompt>
+    <ReportParameter Name="UsuarioId">
+      <DataType>Integer</DataType>
+      <Prompt>Usuario Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
   </ReportParameters>
@@ -3044,29 +3214,29 @@
           <ParameterName>OficinaId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>EstadoId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>UsuarioId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>CliIdentificacion</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>FechaDesde</ParameterName>
         </CellDefinition>
         <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>EstadoId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>FechaHasta</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>UsuarioId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>ParentescoId</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
