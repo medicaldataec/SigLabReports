@@ -1,0 +1,25 @@
+﻿Operación Compilar iniciada..
+------ Operación Compilar iniciada: Proyecto: Reportes Estadisticos SigLab, configuración: Debug ------
+Skipping 'SigLab.rds'. Item is up to date.
+Skipping 'Fac_DS_DocumentosDetalle_Estadistico.rsd'. Item is up to date.
+Skipping 'Par_DS_Usuario_Estadistico.rsd'. Item is up to date.
+Skipping 'Seg_DS_Empresa_Estadistico.rsd'. Item is up to date.
+Skipping 'Seg_DS_Oficina_Estadistico.rsd'. Item is up to date.
+Building the report, Fac_R_DocumentosDetalle_Planillaje_IESS.rdl, for SQL Server 2016 Reporting Services.
+Generación completa -- 0 errores, 0 advertencias
+------ Operación Implementar iniciada: Proyecto: Reportes Estadisticos SigLab, configuración: Debug ------
+Deploying to http://34.133.85.129/ReportServer
+Deploying data source '/Orígenes de datos/SigLab'.
+Advertencia : Cannot deploy data source SigLab to the server because it already exists and OverwriteDataSources is not specified.
+Deploying data set '/Conjuntos de datos/Fac_DS_DocumentosDetalle_Estadistico'.
+Advertencia : Cannot deploy dataset Fac_DS_DocumentosDetalle_Estadistico to the server because it already exists and OverwriteDatasets is not specified.
+Deploying data set '/Conjuntos de datos/Par_DS_Usuario_Estadistico'.
+Advertencia : Cannot deploy dataset Par_DS_Usuario_Estadistico to the server because it already exists and OverwriteDatasets is not specified.
+Deploying data set '/Conjuntos de datos/Seg_DS_Empresa_Estadistico'.
+Advertencia : Cannot deploy dataset Seg_DS_Empresa_Estadistico to the server because it already exists and OverwriteDatasets is not specified.
+Deploying data set '/Conjuntos de datos/Seg_DS_Oficina_Estadistico'.
+Advertencia : Cannot deploy dataset Seg_DS_Oficina_Estadistico to the server because it already exists and OverwriteDatasets is not specified.
+Deploying report '/Reportes Estadisticos SigLab/Fac_R_DocumentosDetalle_Planillaje_IESS'.
+Implementación completa -- 0 errores, 5 advertencias
+========== Compilación: 1 correcta o actualizada, 0 con errores, 0 omitida ============
+========== Implementación: 1 correctos, 0 dieron error, 0 omitidos ==========
