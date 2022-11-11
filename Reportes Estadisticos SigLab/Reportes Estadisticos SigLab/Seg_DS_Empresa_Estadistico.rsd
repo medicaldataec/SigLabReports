@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>SigLab</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@PI_EmpId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT * FROM  Reporte.Seg_V_Empresa where EmpId in (@PI_EmpId) </CommandText>
+    </Query>
+    <Fields>
+      <Field Name="EmpId">
+        <DataField>EmpId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EmpNombre">
+        <DataField>EmpNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpNombreCorto">
+        <DataField>EmpNombreCorto</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpDireccion">
+        <DataField>EmpDireccion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpCelular">
+        <DataField>EmpCelular</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpTelefono">
+        <DataField>EmpTelefono</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpCorreo">
+        <DataField>EmpCorreo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpWeb">
+        <DataField>EmpWeb</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmpLogo">
+        <DataField>EmpLogo</DataField>
+        <rd:TypeName>System.Byte[]</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
