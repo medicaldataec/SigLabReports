@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "DashBoard Login", "DashBoard Login.rptproj", "{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Debug|Default.ActiveCfg = Debug
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Debug|Default.Build.0 = Debug
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Debug|Default.Deploy.0 = Debug
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.DebugLocal|Default.Build.0 = DebugLocal
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Release|Default.ActiveCfg = Release
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Release|Default.Build.0 = Release
+		{FDB05FEA-FBE7-4B9A-A121-9B7863A16258}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37260160-6647-4BF6-A710-55EF6742CB3D}
+	EndGlobalSection
+EndGlobal
