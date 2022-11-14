@@ -59,7 +59,15 @@
     <DataSource Include="SigLab.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Fac_R_DocumentosDetalle_FacturasDetalle.rdl" />
     <Report Include="Fac_R_DocumentosDetalle_Planillaje_IESS.rdl" />
+    <Report Include="Fac_R_Documento_FacturasClientes.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_Embarazo.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_EtapaHumana.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_Medico.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_Sexo.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_TipoUsuario.rdl" />
+    <Report Include="Lab_R_OrdenesDetalle_PRE1.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
