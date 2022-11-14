@@ -65,8 +65,13 @@
     <Report Include="Lab_R_ConteoOrdenes_Embarazo.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_EtapaHumana.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_Medico.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_SalaHospital.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_Sexo.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_TipoUsuario.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_UsuarioIngresa.rdl" />
+    <Report Include="Lab_R_DetalleConteoTest_Fecha.rdl" />
+    <Report Include="Lab_R_DetalleConteoTest_Sexo.rdl" />
+    <Report Include="Lab_R_DetalleConteoTest_UsuarioValidacion.rdl" />
     <Report Include="Lab_R_OrdenesDetalle_PRE1.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />

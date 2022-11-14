@@ -26,11 +26,11 @@
           <QueryParameter Name="@PI_EstadoId">
             <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaDesde">
-            <Value>=Parameters!FechaDesde.Value</Value>
+          <QueryParameter Name="@PI_FechaDesde">
+            <Value>=Parameters!PI_FechaDesde.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaHasta">
-            <Value>=Parameters!FechaHasta.Value</Value>
+          <QueryParameter Name="@PI_FechaHasta">
+            <Value>=Parameters!PI_FechaHasta.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandText>SELECT CAST(OrdFecha AS date) as Fecha,DocId,DocFecha,
@@ -42,7 +42,7 @@ CliCategoriaCodigo,CliParentescoDescripcion,CliParentescoCodigo,OrdFecha,
 PacApellido,PacNombre,PacIdentificacion,PacFechaNacimiento,PacCategoriaDescripcion,PacCategoriaCodigo,OrdInsFecha,RazaId,RazaDescripcion,EmbarazoId,EmbarazoDescripcion,SexoId,SexoDescripcion,SexoCodigo,TipoUsuarioId,TipoUsuarioDescripcion,DATEDIFF(year,PacFechaNacimiento,GETDATE()) AS Edad,ProDescripcion,ProCostoVenta,CodigoIESS,CodigoMSP,PrecioVenta,Iva,IvaPorc,
 OrdDiagnostico,OrdEstado,OrdTurno,COUNT(*) as NumReg
 FROM  Reporte.Fac_V_DocumentosDetalle 
-Where EmpId in (@PI_EmpId) and OficinaId in (@PI_OficinaId) and OrdEstado in (@PI_EstadoId) and OrdFecha between @FechaDesde and @FechaHasta 
+Where EmpId in (@PI_EmpId) and (OficinaId in (@PI_OficinaId) or @PI_OficinaId=0) and OrdEstado in (@PI_EstadoId) and OrdFecha between @PI_FechaDesde and @PI_FechaHasta 
 Group By DocId,DocFecha,EmpId,Empresa,OficinaId,Oficina,SalaHospDescripcion,SalaHospCodigo,OrdFecha,MedApellido,MedNombre,MedIdentificacion,VenApellido,VenNombre,VenIdentificacion,
 Cliente,CliApellido,CliNombre,CliIdentificacion,CliCategoriaDescripcion,
 CliCategoriaCodigo,CliParentescoDescripcion,CliParentescoCodigo,
@@ -838,7 +838,7 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
             <Top>3.43112cm</Top>
             <Left>0.65617cm</Left>
             <Height>0.79516cm</Height>
-            <Width>7.99852cm</Width>
+            <Width>7.99851cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3612,7 +3612,7 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
             <Top>2.02353cm</Top>
             <Left>0.65379cm</Left>
             <Height>1.2cm</Height>
-            <Width>63.67495cm</Width>
+            <Width>63.67494cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3944,13 +3944,13 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
       <Prompt>PI Oficina Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="FechaDesde">
+    <ReportParameter Name="PI_FechaDesde">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Desde</Prompt>
+      <Prompt>PI Fecha Desde</Prompt>
     </ReportParameter>
-    <ReportParameter Name="FechaHasta">
+    <ReportParameter Name="PI_FechaHasta">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Hasta</Prompt>
+      <Prompt>PI Fecha Hasta</Prompt>
     </ReportParameter>
     <ReportParameter Name="PI_EstadoId">
       <DataType>String</DataType>
@@ -3978,16 +3978,6 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
           <ParameterName>PI_OficinaId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>FechaDesde</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>FechaHasta</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>PI_EstadoId</ParameterName>
@@ -3996,6 +3986,16 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>PI_UsuarioId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_FechaDesde</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_FechaHasta</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
