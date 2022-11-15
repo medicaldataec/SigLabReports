@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <DataSet Include="Fac_DS_DocumentosDetalle_Estadistico.rsd" />
+    <DataSet Include="Lab_DS_Ordenes_Estadistico.rsd" />
     <DataSet Include="Par_DS_Usuario_Estadistico.rsd" />
     <DataSet Include="Seg_DS_Empresa_Estadistico.rsd" />
     <DataSet Include="Seg_DS_Oficina_Estadistico.rsd" />
@@ -62,6 +63,7 @@
     <Report Include="Fac_R_DocumentosDetalle_FacturasDetalle.rdl" />
     <Report Include="Fac_R_DocumentosDetalle_Planillaje_IESS.rdl" />
     <Report Include="Fac_R_Documento_FacturasClientes.rdl" />
+    <Report Include="Lab_R_ConteoOrdenes_Edad.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_Embarazo.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_EtapaHumana.rdl" />
     <Report Include="Lab_R_ConteoOrdenes_Medico.rdl" />
