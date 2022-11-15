@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <DataSet Include="Fac_DS_DocumentosDetalle_Estadistico.rsd" />
+    <DataSet Include="Lab_DS_OrdenDetalle_Estadistico.rsd" />
     <DataSet Include="Lab_DS_Ordenes_Estadistico.rsd" />
     <DataSet Include="Par_DS_Usuario_Estadistico.rsd" />
     <DataSet Include="Seg_DS_Empresa_Estadistico.rsd" />

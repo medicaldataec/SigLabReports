@@ -326,7 +326,7 @@ Order By DocFecha</CommandText>
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Par_V_Usuario_Estadistico">
+    <DataSet Name="Par_DS_Usuario_Estadistico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -780,7 +780,7 @@ Order By DocFecha</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Par_V_Usuario_Estadistico</DataSetName>
+            <DataSetName>Par_DS_Usuario_Estadistico</DataSetName>
             <Top>3.99992cm</Top>
             <Left>0.65379cm</Left>
             <Height>0.79516cm</Height>
@@ -3888,7 +3888,6 @@ Order By DocFecha</CommandText>
                             <rd:FormatSymbolCulture>es-EC</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -3942,7 +3941,7 @@ Order By DocFecha</CommandText>
             <Top>2.02353cm</Top>
             <Left>0.65379cm</Left>
             <Height>1.8cm</Height>
-            <Width>53.28683cm</Width>
+            <Width>53.28681cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

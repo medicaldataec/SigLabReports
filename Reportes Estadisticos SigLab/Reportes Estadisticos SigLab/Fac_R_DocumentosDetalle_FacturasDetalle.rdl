@@ -32,6 +32,9 @@
           <QueryParameter Name="@PI_FechaHasta">
             <Value>=Parameters!PI_FechaHasta.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@PI_CliIdentificacion">
+            <Value>=Parameters!PI_CliIdentificacion.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandText>SELECT CAST(OrdFecha AS date) as Fecha,DocId,DocFecha,
 EmpId,Empresa,OficinaId,Oficina,SalaHospDescripcion,SalaHospCodigo,
@@ -42,7 +45,7 @@ CliCategoriaCodigo,CliParentescoDescripcion,CliParentescoCodigo,OrdFecha,
 PacApellido,PacNombre,PacIdentificacion,PacFechaNacimiento,PacCategoriaDescripcion,PacCategoriaCodigo,OrdInsFecha,RazaId,RazaDescripcion,EmbarazoId,EmbarazoDescripcion,SexoId,SexoDescripcion,SexoCodigo,TipoUsuarioId,TipoUsuarioDescripcion,DATEDIFF(year,PacFechaNacimiento,GETDATE()) AS Edad,ProDescripcion,ProCostoVenta,CodigoIESS,CodigoMSP,PrecioVenta,Iva,IvaPorc,
 OrdDiagnostico,OrdEstado,OrdTurno,COUNT(*) as NumReg
 FROM  Reporte.Fac_V_DocumentosDetalle 
-Where EmpId in (@PI_EmpId) and (OficinaId in (@PI_OficinaId) or @PI_OficinaId=0) and OrdEstado in (@PI_EstadoId) and OrdFecha between @PI_FechaDesde and @PI_FechaHasta 
+Where EmpId in (@PI_EmpId) and (OficinaId in (@PI_OficinaId) or @PI_OficinaId=0) and OrdEstado in (@PI_EstadoId) and OrdFecha between @PI_FechaDesde and @PI_FechaHasta and (CliIdentificacion in (@PI_CliIdentificacion) OR @PI_CliIdentificacion=0) and DocEstadoReg in (@PI_EstadoId)
 Group By DocId,DocFecha,EmpId,Empresa,OficinaId,Oficina,SalaHospDescripcion,SalaHospCodigo,OrdFecha,MedApellido,MedNombre,MedIdentificacion,VenApellido,VenNombre,VenIdentificacion,
 Cliente,CliApellido,CliNombre,CliIdentificacion,CliCategoriaDescripcion,
 CliCategoriaCodigo,CliParentescoDescripcion,CliParentescoCodigo,
@@ -380,7 +383,7 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Par_V_Usuario_Estadistico">
+    <DataSet Name="Par_DS_Usuario_Estadistico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -834,7 +837,7 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Par_V_Usuario_Estadistico</DataSetName>
+            <DataSetName>Par_DS_Usuario_Estadistico</DataSetName>
             <Top>3.43112cm</Top>
             <Left>0.65617cm</Left>
             <Height>0.79516cm</Height>
@@ -3952,6 +3955,10 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
       <DataType>DateTime</DataType>
       <Prompt>PI Fecha Hasta</Prompt>
     </ReportParameter>
+    <ReportParameter Name="PI_CliIdentificacion">
+      <DataType>String</DataType>
+      <Prompt>PI Cli Identificacion</Prompt>
+    </ReportParameter>
     <ReportParameter Name="PI_EstadoId">
       <DataType>String</DataType>
       <Prompt>PI Estado Id</Prompt>
@@ -3978,16 +3985,6 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
           <ParameterName>PI_OficinaId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>PI_EstadoId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>PI_UsuarioId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>PI_FechaDesde</ParameterName>
@@ -3996,6 +3993,21 @@ OrdDiagnostico,OrdEstado,OrdTurno</CommandText>
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>PI_FechaHasta</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>PI_EstadoId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>PI_UsuarioId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>PI_CliIdentificacion</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

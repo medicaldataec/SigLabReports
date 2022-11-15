@@ -121,7 +121,7 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Par_V_Usuario_Estadistico">
+    <DataSet Name="Par_DS_Usuario_Estadistico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -719,7 +719,7 @@ PacApellido,PacNombre,PacIdentificacion,EtapaHumDescripcion</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Par_V_Usuario_Estadistico</DataSetName>
+            <DataSetName>Par_DS_Usuario_Estadistico</DataSetName>
             <Top>4.29418cm</Top>
             <Left>0.65379cm</Left>
             <Height>0.79516cm</Height>

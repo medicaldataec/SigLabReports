@@ -121,7 +121,7 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Par_V_Usuario_Estadistico">
+    <DataSet Name="Par_DS_Usuario_Estadistico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -201,7 +201,7 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Lab_V_OrdenDetalle_Estadistico">
+    <DataSet Name="Lab_DS_OrdenDetalle_Estadistico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
@@ -767,7 +767,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Par_V_Usuario_Estadistico</DataSetName>
+            <DataSetName>Par_DS_Usuario_Estadistico</DataSetName>
             <Top>4.28102cm</Top>
             <Left>0.65617cm</Left>
             <Height>0.72022cm</Height>
@@ -1630,7 +1630,7 @@ TipoUsuarioId,TipoUsuarioDescripcion,OrdInsUserId,OrdInsUser,OrdInsFecha,DetResu
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>Lab_V_OrdenDetalle_Estadistico</DataSetName>
+            <DataSetName>Lab_DS_OrdenDetalle_Estadistico</DataSetName>
             <Top>2.19203cm</Top>
             <Left>0.65617cm</Left>
             <Height>1.8cm</Height>
