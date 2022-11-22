@@ -112,35 +112,6 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Ctl_DS_Categoria">
-      <Query>
-        <DataSourceName>SigLab</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@PI_EmpId">
-            <Value>=Parameters!PI_EmpId.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <CommandText>select * from Reporte.Ctl_V_Categoria where EmpId in (@PI_EmpId)</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="CategoriaId">
-          <DataField>CategoriaId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="EmpId">
-          <DataField>EmpId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CategoriaDescripcion">
-          <DataField>CategoriaDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CategoriaCodigo">
-          <DataField>CategoriaCodigo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
     <DataSet Name="Par_DS_Usuario">
       <Query>
         <DataSourceName>SigLab</DataSourceName>

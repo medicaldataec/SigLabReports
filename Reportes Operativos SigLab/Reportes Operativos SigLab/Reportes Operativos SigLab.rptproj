@@ -49,13 +49,33 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <DataSet Include="Ctl_DS_Categoria.rsd" />
+    <DataSet Include="Ctl_DS_Especialida.rsd" />
+    <DataSet Include="Ctl_DS_Especialidad.rsd" />
+    <DataSet Include="Ctl_DS_Estado.rsd" />
+    <DataSet Include="Ctl_DS_EtapaHumana.rsd" />
+    <DataSet Include="Ctl_DS_Raza.rsd" />
+    <DataSet Include="Ctl_DS_SalaHospital.rsd" />
+    <DataSet Include="Ctl_DS_SalaHospitalOficina.rsd" />
+    <DataSet Include="Ctl_DS_TipoUsuario.rsd" />
+    <DataSet Include="Ctl_DS_Unidad.rsd" />
     <DataSet Include="Fac_DS_Documento.rsd" />
     <DataSet Include="Fac_DS_DocumentosDetalle.rsd" />
+    <DataSet Include="Inv_DS_Product.rsd" />
+    <DataSet Include="Lab_DS_Orden.rsd" />
+    <DataSet Include="Lab_DS_Test.rsd" />
+    <DataSet Include="Lab_DS_TestArea.rsd" />
+    <DataSet Include="Par_DS_Medico.rsd" />
+    <DataSet Include="Par_DS_Usuario.rsd" />
+    <DataSet Include="Par_DS_Vendedor.rsd" />
+    <DataSet Include="Seg_DS_Empresa.rsd" />
+    <DataSet Include="Seg_DS_Oficina.rsd" />
   </ItemGroup>
   <ItemGroup>
     <DataSource Include="SigLab.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Historial_Paciente.rdl" />
     <Report Include="Oper_R_Catalogo_Categoria.rdl" />
     <Report Include="Oper_R_Catalogo_EspecialidadMedico.rdl" />
     <Report Include="Oper_R_Catalogo_EtapaHumana.rdl" />
@@ -74,10 +94,16 @@
     <Report Include="Oper_R_Factura_ListadoFactura_Vendedor.rdl" />
     <Report Include="Oper_R_Factura_ListadoFactura_VendedorPorFecha.rdl" />
     <Report Include="Oper_R_Factura_TicketFactura.rdl" />
+    <Report Include="Oper_R_Inventario_Producto.rdl" />
+    <Report Include="Oper_R_Inventario_ProductosPorOficina.rdl" />
+    <Report Include="Oper_R_Lab_HistorialPaciente.rdl" />
+    <Report Include="Oper_R_Lab_Historial_Paciente_Area.rdl" />
     <Report Include="Oper_R_Lab_Rango.rdl" />
     <Report Include="Oper_R_Lab_RangoReferencial.rdl" />
+    <Report Include="Oper_R_Lab_Resultado_Paciente.rdl" />
     <Report Include="Oper_R_Lab_Test.rdl" />
     <Report Include="Oper_R_Lab_TestArea.rdl" />
+    <Report Include="Oper_R_Lab_ValorCritico.rdl" />
     <Report Include="Oper_R_Participante_MedicoEspecialidad.rdl" />
     <Report Include="Oper_R_Participante_Medicos.rdl" />
     <Report Include="Oper_R_Participante_Vendedores.rdl" />

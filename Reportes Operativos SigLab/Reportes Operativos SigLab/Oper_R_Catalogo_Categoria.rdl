@@ -412,7 +412,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -950,7 +949,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FechaHasta</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>3.9172cm</Left>
               <Height>0.46283cm</Height>
               <Width>2.763cm</Width>

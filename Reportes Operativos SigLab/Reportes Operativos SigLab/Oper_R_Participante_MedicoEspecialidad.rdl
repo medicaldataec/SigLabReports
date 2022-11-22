@@ -14,11 +14,11 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Seguridad.Seg_V_Empresa  where EmpId in (@EmpId)</CommandText>
+        <CommandText>SELECT * FROM Seguridad.Seg_V_Empresa  where EmpId in (@PI_EmpId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -95,11 +95,11 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
+          <QueryParameter Name="@PI_EstadoId">
+            <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Reporte.Ctl_V_Estado where EstadoId in (@EstadoId)</CommandText>
+        <CommandText>SELECT * FROM Reporte.Ctl_V_Estado where EstadoId in (@PI_EstadoId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EstadoId">
@@ -116,14 +116,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@UsuarioId">
-            <Value>=Parameters!UsuarioId.Value</Value>
+          <QueryParameter Name="@PI_UsuarioId">
+            <Value>=Parameters!PI_UsuarioId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Reporte.Par_V_Usuario where EmpId in (@EmpId) and ParticipanteId in (@UsuarioId)</CommandText>
+        <CommandText>SELECT * FROM Reporte.Par_V_Usuario where EmpId in (@PI_EmpId) and ParticipanteId in (@PI_UsuarioId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -192,47 +192,18 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Lab_DS_Rango">
-      <Query>
-        <DataSourceName>SigLab</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <CommandText>SELECT *  FROM Laboratorio.Lab_V_Rango Where EmpId in (@EmpId) </CommandText>
-      </Query>
-      <Fields>
-        <Field Name="EmpId">
-          <DataField>EmpId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="RanId">
-          <DataField>RanId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TestId">
-          <DataField>TestId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TestDescripcion">
-          <DataField>TestDescripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
     <DataSet Name="Par_DS_Medico">
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@EspecialidadId">
-            <Value>=Parameters!EspecialidadId.Value</Value>
+          <QueryParameter Name="@PI_EspecialidadId">
+            <Value>=Parameters!PI_EspecialidadId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM  Participante.Par_V_Medico where EmpId in (@EmpId) and EspecialidadId in (@EspecialidadId)</CommandText>
+        <CommandText>SELECT * FROM  Participante.Par_V_Medico where EmpId in (@PI_EmpId) and EspecialidadId in (@PI_EspecialidadId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -289,11 +260,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EspecialidadId">
-            <Value>=Parameters!EspecialidadId.Value</Value>
+          <QueryParameter Name="@PI_EspecialidadId">
+            <Value>=Parameters!PI_EspecialidadId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PI_EstadoId">
+            <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM  Catalogo.Ctl_V_Especialidad where EspecialidadId in (@EspecialidadId)</CommandText>
+        <CommandText>SELECT * FROM  Catalogo.Ctl_V_Especialidad where EspecialidadId in (@PI_EspecialidadId) and Estado in (@PI_EstadoId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EspecialidadId">
@@ -1443,59 +1417,48 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="EmpId">
+    <ReportParameter Name="PI_EmpId">
       <DataType>Integer</DataType>
-      <Prompt>Emp Id</Prompt>
+      <Prompt>PI Emp Id</Prompt>
     </ReportParameter>
-    <ReportParameter Name="UsuarioId">
+    <ReportParameter Name="PI_EspecialidadId">
       <DataType>Integer</DataType>
-      <Prompt>Usuario Id</Prompt>
+      <Prompt>PI Especialidad Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="OficinaId">
-      <DataType>Integer</DataType>
-      <Prompt>Oficina Id</Prompt>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="EspecialidadId">
-      <DataType>Integer</DataType>
-      <Prompt>Especialidad Id</Prompt>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="EstadoId">
+    <ReportParameter Name="PI_EstadoId">
       <DataType>String</DataType>
-      <Prompt>Estado Id</Prompt>
+      <Prompt>PI Estado Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PI_UsuarioId">
+      <DataType>Integer</DataType>
+      <Prompt>PI Usuario Id</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_EstadoId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>EmpId</ParameterName>
+          <ParameterName>PI_EmpId</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>OficinaId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>EstadoId</ParameterName>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_UsuarioId</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>UsuarioId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>EspecialidadId</ParameterName>
+          <ParameterName>PI_EspecialidadId</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

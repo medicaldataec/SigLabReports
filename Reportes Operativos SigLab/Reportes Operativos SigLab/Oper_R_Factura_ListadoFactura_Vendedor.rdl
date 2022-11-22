@@ -14,11 +14,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PI_EstadoId">
+            <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Seguridad.Seg_V_Empresa  where EmpId in (@EmpId)</CommandText>
+        <CommandText>SELECT * FROM Seguridad.Seg_V_Empresa  where EmpId in (@PI_EmpId) and Estado in (@PI_EstadoId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -95,14 +98,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@OficinaId">
-            <Value>=Parameters!OficinaId.Value</Value>
+          <QueryParameter Name="@PI_OficinaId">
+            <Value>=Parameters!PI_OficinaId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Seguridad.Seg_V_Oficina  where EmpId in (@EmpId) and OficinaId in (@OficinaId)</CommandText>
+        <CommandText>SELECT * FROM Seguridad.Seg_V_Oficina  where EmpId in (@PI_EmpId) and OficinaId in (@PI_OficinaId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -187,11 +190,11 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
+          <QueryParameter Name="@PI_EstadoId">
+            <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Reporte.Ctl_V_Estado where EstadoId in (@EstadoId)</CommandText>
+        <CommandText>SELECT * FROM Reporte.Ctl_V_Estado where EstadoId in (@PI_EstadoId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EstadoId">
@@ -208,14 +211,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@UsuarioId">
-            <Value>=Parameters!UsuarioId.Value</Value>
+          <QueryParameter Name="@PI_UsuarioId">
+            <Value>=Parameters!PI_UsuarioId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Reporte.Par_V_Usuario where EmpId in (@EmpId) and ParticipanteId in (@UsuarioId)</CommandText>
+        <CommandText>SELECT * FROM Reporte.Par_V_Usuario where EmpId in (@PI_EmpId) and ParticipanteId in (@PI_UsuarioId)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -288,23 +291,28 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@EstadoId">
-            <Value>=Parameters!EstadoId.Value</Value>
+          <QueryParameter Name="@PI_OficinaId">
+            <Value>=Parameters!PI_OficinaId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@VenIdentificacion">
-            <Value>=Parameters!VenIdentificacion.Value</Value>
+          <QueryParameter Name="@PI_EstadoId">
+            <Value>=Parameters!PI_EstadoId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaDesde">
-            <Value>=Parameters!FechaDesde.Value</Value>
+          <QueryParameter Name="@PI_VenIdentificacion">
+            <Value>=Parameters!PI_VenIdentificacion.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaHasta">
-            <Value>=Parameters!FechaHasta.Value</Value>
+          <QueryParameter Name="@PI_FechaDesde">
+            <Value>=Parameters!PI_FechaDesde.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PI_FechaHasta">
+            <Value>=Parameters!PI_FechaHasta.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM Facturacion.Fac_V_Documento where EmpId in (@EmpId) and DocEstadoReg in (@EstadoId) and VenIdentificacion in (@VenIdentificacion) and DocFecha between @FechaDesde and @FechaHasta</CommandText>
+        <CommandText>SELECT * FROM Facturacion.Fac_V_Documento where EmpId in (@PI_EmpId) and (OficinaId in (@PI_OficinaId) or @PI_OficinaId=0) and  DocEstadoReg in (@PI_EstadoId) and (VenIdentificacion in (@PI_VenIdentificacion) or @PI_VenIdentificacion=0) and DocFecha between @PI_FechaDesde and @PI_FechaHasta
+
+</CommandText>
       </Query>
       <Fields>
         <Field Name="Empresa">
@@ -395,6 +403,10 @@
           <DataField>CliCategoriaId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="CliCategoriaCodigo">
+          <DataField>CliCategoriaCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="CliCategoriaDescripcion">
           <DataField>CliCategoriaDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -463,6 +475,10 @@
           <DataField>PacCategoriaDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="PacCategoriaCodigo">
+          <DataField>PacCategoriaCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="MedId">
           <DataField>MedId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -519,6 +535,10 @@
           <DataField>SalaHospCama</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SalaHospCodigo">
+          <DataField>SalaHospCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="InsUserId">
           <DataField>InsUserId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -558,6 +578,10 @@
         <Field Name="CliParentescoId">
           <DataField>CliParentescoId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CliParentescoCodigo">
+          <DataField>CliParentescoCodigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CliParentescoDescripcion">
           <DataField>CliParentescoDescripcion</DataField>
@@ -653,14 +677,14 @@
       <Query>
         <DataSourceName>SigLab</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@EmpId">
-            <Value>=Parameters!EmpId.Value</Value>
+          <QueryParameter Name="@PI_EmpId">
+            <Value>=Parameters!PI_EmpId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@VenIdentificacion">
-            <Value>=Parameters!VenIdentificacion.Value</Value>
+          <QueryParameter Name="@PI_VenIdentificacion">
+            <Value>=Parameters!PI_VenIdentificacion.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT * FROM  Participante.Par_V_Vendedor where EmpId in (@EmpId) and Identificacion in (@VenIdentificacion)</CommandText>
+        <CommandText>SELECT * FROM  Participante.Par_V_Vendedor where EmpId in (@PI_EmpId) and Identificacion in (@PI_VenIdentificacion)</CommandText>
       </Query>
       <Fields>
         <Field Name="EmpId">
@@ -1504,6 +1528,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1547,6 +1572,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1584,6 +1610,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1621,6 +1648,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1658,6 +1686,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2325,7 +2354,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!FechaDesde.Value</Value>
+                      <Value>=Parameters!PI_FechaDesde.Value</Value>
                       <Style>
                         <FontSize>5pt</FontSize>
                         <Format>d</Format>
@@ -2393,7 +2422,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!FechaHasta.Value</Value>
+                      <Value>=Parameters!PI_FechaHasta.Value</Value>
                       <Style>
                         <FontSize>5pt</FontSize>
                         <Format>d</Format>
@@ -2537,35 +2566,35 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="EmpId">
+    <ReportParameter Name="PI_EmpId">
       <DataType>Integer</DataType>
-      <Prompt>Emp Id</Prompt>
+      <Prompt>PI Emp Id</Prompt>
     </ReportParameter>
-    <ReportParameter Name="OficinaId">
+    <ReportParameter Name="PI_OficinaId">
       <DataType>Integer</DataType>
-      <Prompt>Oficina Id</Prompt>
+      <Prompt>PI Oficina Id</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="FechaDesde">
+    <ReportParameter Name="PI_FechaDesde">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Desde</Prompt>
+      <Prompt>PI Fecha Desde</Prompt>
     </ReportParameter>
-    <ReportParameter Name="VenIdentificacion">
-      <DataType>String</DataType>
-      <Prompt>Ven Identificacion</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="EstadoId">
-      <DataType>String</DataType>
-      <Prompt>Estado Id</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="FechaHasta">
+    <ReportParameter Name="PI_FechaHasta">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Hasta</Prompt>
+      <Prompt>PI Fecha Hasta</Prompt>
     </ReportParameter>
-    <ReportParameter Name="UsuarioId">
+    <ReportParameter Name="PI_EstadoId">
+      <DataType>String</DataType>
+      <Prompt>PI Estado Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PI_VenIdentificacion">
       <DataType>Integer</DataType>
-      <Prompt>Usuario Id</Prompt>
+      <Prompt>PI Ven Identificacion</Prompt>
       <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="PI_UsuarioId">
+      <DataType>Integer</DataType>
+      <Prompt>PI Usuario Id</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -2576,37 +2605,37 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>EmpId</ParameterName>
+          <ParameterName>PI_EmpId</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>OficinaId</ParameterName>
+          <ParameterName>PI_OficinaId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>PI_EstadoId</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>FechaDesde</ParameterName>
+          <RowIndex>1</RowIndex>
+          <ParameterName>PI_UsuarioId</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>EstadoId</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>UsuarioId</ParameterName>
+          <ParameterName>PI_VenIdentificacion</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>FechaHasta</ParameterName>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_FechaDesde</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>VenIdentificacion</ParameterName>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PI_FechaHasta</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

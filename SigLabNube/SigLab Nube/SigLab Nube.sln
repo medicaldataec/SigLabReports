@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "SigLab Nube", "SigLab Nube.rptproj", "{75A1E820-3102-44CC-A6DC-36C3F87E3D38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Debug|Default.ActiveCfg = Debug
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Debug|Default.Build.0 = Debug
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Debug|Default.Deploy.0 = Debug
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.DebugLocal|Default.Build.0 = DebugLocal
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Release|Default.ActiveCfg = Release
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Release|Default.Build.0 = Release
+		{75A1E820-3102-44CC-A6DC-36C3F87E3D38}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8483F5DF-6D84-4434-AE75-C4EE64764B3C}
+	EndGlobalSection
+EndGlobal

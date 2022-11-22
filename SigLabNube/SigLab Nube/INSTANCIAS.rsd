@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>CLIENTES</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@ServerHosT">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT ServerHost,ServerInstace,ClienteInstance
+FROM dbo.DatabaseInstace
+WHERE ServerHost = (@ServerHosT)
+GROUP BY ServerHost,ServerInstace,ClienteInstance
+ORDER BY ServerHost</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ServerHost">
+        <DataField>ServerHost</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ServerInstace">
+        <DataField>ServerInstace</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteInstance">
+        <DataField>ClienteInstance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="CLIENTES">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=34.133.85.129;Initial Catalog=DBACLIENTES</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>3e597373-22af-4d6a-95c2-1a7771b8d42c</DataSourceID>
+</RptDataSource>
